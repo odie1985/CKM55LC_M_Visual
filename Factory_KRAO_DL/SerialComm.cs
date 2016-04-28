@@ -1,4 +1,4 @@
-ï»¿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -56,8 +56,8 @@ namespace Factory_KRAO_DL
                 sp.DataBits = dataBits;
                 sp.Parity = parity;
                 sp.StopBits = stopBits;
-                sp.ReadTimeout = timeoutReadms;//SerialPort.ReadTimeoutå±æ€§  è·å–æˆ–è®¾ç½®è¯»å–æ“ä½œæœªå®Œæˆæ—¶å‘ç”Ÿè¶…æ—¶ä¹‹å‰çš„æ¯«ç§’æ•°
-                sp.WriteTimeout = timeoutWritems;//SerialPort.WriteTimeoutå±æ€§ è·å–æˆ–è®¾ç½®å†™å…¥æ“ä½œæœªå®Œæˆæ—¶å‘ç”Ÿè¶…æ—¶ä¹‹å‰çš„æ¯«ç§’æ•°
+                sp.ReadTimeout = timeoutReadms;//SerialPort.ReadTimeoutÊôĞÔ  »ñÈ¡»òÉèÖÃ¶ÁÈ¡²Ù×÷Î´Íê³ÉÊ±·¢Éú³¬Ê±Ö®Ç°µÄºÁÃëÊı
+                sp.WriteTimeout = timeoutWritems;//SerialPort.WriteTimeoutÊôĞÔ »ñÈ¡»òÉèÖÃĞ´Èë²Ù×÷Î´Íê³ÉÊ±·¢Éú³¬Ê±Ö®Ç°µÄºÁÃëÊı
 
                 try
                 {

@@ -1,16 +1,16 @@
-ï»¿namespace Factory_KRAO_DL
+namespace Factory_KRAO_DL
 {
     partial class FormCalibration
     {
         /// <summary>
-        /// å¿…éœ€çš„è®¾è®¡å™¨å˜é‡ã€‚
+        /// ±ØĞèµÄÉè¼ÆÆ÷±äÁ¿¡£
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// æ¸…ç†æ‰€æœ‰æ­£åœ¨ä½¿ç”¨çš„èµ„æºã€‚
+        /// ÇåÀíËùÓĞÕıÔÚÊ¹ÓÃµÄ×ÊÔ´¡£
         /// </summary>
-        /// <param name="disposing">å¦‚æœåº”é‡Šæ”¾æ‰˜ç®¡èµ„æºï¼Œä¸º trueï¼›å¦åˆ™ä¸º falseã€‚</param>
+        /// <param name="disposing">Èç¹ûÓ¦ÊÍ·ÅÍĞ¹Ü×ÊÔ´£¬Îª true£»·ñÔòÎª false¡£</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,11 +20,11 @@
             base.Dispose(disposing);
         }
 
-        #region Windows çª—ä½“è®¾è®¡å™¨ç”Ÿæˆçš„ä»£ç 
+        #region Windows ´°ÌåÉè¼ÆÆ÷Éú³ÉµÄ´úÂë
 
         /// <summary>
-        /// è®¾è®¡å™¨æ”¯æŒæ‰€éœ€çš„æ–¹æ³• - ä¸è¦
-        /// ä½¿ç”¨ä»£ç ç¼–è¾‘å™¨ä¿®æ”¹æ­¤æ–¹æ³•çš„å†…å®¹ã€‚
+        /// Éè¼ÆÆ÷Ö§³ÖËùĞèµÄ·½·¨ - ²»Òª
+        /// Ê¹ÓÃ´úÂë±à¼­Æ÷ĞŞ¸Ä´Ë·½·¨µÄÄÚÈİ¡£
         /// </summary>
         private void InitializeComponent()
         {
@@ -86,25 +86,25 @@
             // 
             // btnOpen
             // 
-            this.btnOpen.Font = new System.Drawing.Font("å®‹ä½“", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnOpen.Font = new System.Drawing.Font("ËÎÌå", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnOpen.Location = new System.Drawing.Point(388, 20);
             this.btnOpen.Name = "btnOpen";
             this.btnOpen.Size = new System.Drawing.Size(71, 41);
             this.btnOpen.TabIndex = 92;
             this.btnOpen.Tag = "";
-            this.btnOpen.Text = "åˆ†é—¸";
+            this.btnOpen.Text = "·ÖÕ¢";
             this.btnOpen.UseVisualStyleBackColor = true;
             this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
             // btnClose
             // 
-            this.btnClose.Font = new System.Drawing.Font("å®‹ä½“", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnClose.Font = new System.Drawing.Font("ËÎÌå", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnClose.Location = new System.Drawing.Point(388, 91);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(71, 41);
             this.btnClose.TabIndex = 93;
             this.btnClose.Tag = "";
-            this.btnClose.Text = "åˆé—¸";
+            this.btnClose.Text = "ºÏÕ¢";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
@@ -130,7 +130,7 @@
             this.stalabMBPortName.Name = "stalabMBPortName";
             this.stalabMBPortName.Size = new System.Drawing.Size(19, 21);
             this.stalabMBPortName.Text = "0";
-            this.stalabMBPortName.ToolTipText = "Modbusç«¯å£å·";
+            this.stalabMBPortName.ToolTipText = "Modbus¶Ë¿ÚºÅ";
             // 
             // stalabMBBaudRate
             // 
@@ -140,7 +140,7 @@
             this.stalabMBBaudRate.Name = "stalabMBBaudRate";
             this.stalabMBBaudRate.Size = new System.Drawing.Size(19, 21);
             this.stalabMBBaudRate.Text = "0";
-            this.stalabMBBaudRate.ToolTipText = "Modbusæ¯”ç‰¹ç‡";
+            this.stalabMBBaudRate.ToolTipText = "Modbus±ÈÌØÂÊ";
             // 
             // stalabMBIsOffline
             // 
@@ -149,7 +149,7 @@
             this.stalabMBIsOffline.Margin = new System.Windows.Forms.Padding(5, 3, 0, 2);
             this.stalabMBIsOffline.Name = "stalabMBIsOffline";
             this.stalabMBIsOffline.Size = new System.Drawing.Size(121, 21);
-            this.stalabMBIsOffline.Text = "CKM55LC-Mæœªè¿æ¥";
+            this.stalabMBIsOffline.Text = "CKM55LC-MÎ´Á¬½Ó";
             // 
             // stalabMBStatus
             // 
@@ -173,29 +173,29 @@
             // 
             // btnTest
             // 
-            this.btnTest.Font = new System.Drawing.Font("å®‹ä½“", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnTest.Font = new System.Drawing.Font("ËÎÌå", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnTest.Location = new System.Drawing.Point(388, 162);
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(71, 41);
             this.btnTest.TabIndex = 104;
             this.btnTest.Tag = "";
-            this.btnTest.Text = "è¯•éªŒ";
+            this.btnTest.Text = "ÊÔÑé";
             this.btnTest.UseVisualStyleBackColor = true;
             this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("å®‹ä½“", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label25.Font = new System.Drawing.Font("ËÎÌå", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label25.Location = new System.Drawing.Point(6, 112);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(70, 14);
             this.label25.TabIndex = 108;
-            this.label25.Text = "é€šè®¯åœ°å€:";
+            this.label25.Text = "Í¨Ñ¶µØÖ·:";
             // 
             // txtDetect1
             // 
-            this.txtDetect1.Font = new System.Drawing.Font("å®‹ä½“", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtDetect1.Font = new System.Drawing.Font("ËÎÌå", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtDetect1.Location = new System.Drawing.Point(82, 109);
             this.txtDetect1.MaxLength = 6;
             this.txtDetect1.Name = "txtDetect1";
@@ -206,7 +206,7 @@
             // 
             // cbxBaudRate
             // 
-            this.cbxBaudRate.Font = new System.Drawing.Font("å®‹ä½“", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cbxBaudRate.Font = new System.Drawing.Font("ËÎÌå", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cbxBaudRate.FormattingEnabled = true;
             this.cbxBaudRate.Items.AddRange(new object[] {
             "600",
@@ -223,7 +223,7 @@
             // 
             // cbxCom
             // 
-            this.cbxCom.Font = new System.Drawing.Font("å®‹ä½“", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cbxCom.Font = new System.Drawing.Font("ËÎÌå", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cbxCom.FormattingEnabled = true;
             this.cbxCom.Location = new System.Drawing.Point(82, 27);
             this.cbxCom.Name = "cbxCom";
@@ -233,31 +233,31 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("å®‹ä½“", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Font = new System.Drawing.Font("ËÎÌå", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.Location = new System.Drawing.Point(6, 71);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 14);
             this.label1.TabIndex = 48;
-            this.label1.Text = "é€šè®¯é€Ÿç‡:";
+            this.label1.Text = "Í¨Ñ¶ËÙÂÊ:";
             // 
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("å®‹ä½“", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label26.Font = new System.Drawing.Font("ËÎÌå", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label26.Location = new System.Drawing.Point(6, 30);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(42, 14);
             this.label26.TabIndex = 90;
-            this.label26.Text = "ä¸²å£:";
+            this.label26.Text = "´®¿Ú:";
             // 
             // btnConnect
             // 
-            this.btnConnect.Font = new System.Drawing.Font("å®‹ä½“", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnConnect.Font = new System.Drawing.Font("ËÎÌå", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnConnect.Location = new System.Drawing.Point(136, 150);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(81, 35);
             this.btnConnect.TabIndex = 0;
-            this.btnConnect.Text = "è¿æ¥ä¸²å£";
+            this.btnConnect.Text = "Á¬½Ó´®¿Ú";
             this.btnConnect.UseVisualStyleBackColor = true;
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
@@ -318,7 +318,7 @@
             // 
             // txtProductDate
             // 
-            this.txtProductDate.Font = new System.Drawing.Font("å®‹ä½“", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtProductDate.Font = new System.Drawing.Font("ËÎÌå", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtProductDate.Location = new System.Drawing.Point(105, 295);
             this.txtProductDate.MaxLength = 10;
             this.txtProductDate.Name = "txtProductDate";
@@ -329,26 +329,26 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("å®‹ä½“", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Font = new System.Drawing.Font("ËÎÌå", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.Location = new System.Drawing.Point(29, 298);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 14);
             this.label2.TabIndex = 111;
-            this.label2.Text = "ç”Ÿäº§æ—¥æœŸ:";
+            this.label2.Text = "Éú²úÈÕÆÚ:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("å®‹ä½“", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Font = new System.Drawing.Font("ËÎÌå", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.Location = new System.Drawing.Point(29, 354);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 14);
             this.label3.TabIndex = 112;
-            this.label3.Text = "èµ„äº§ç¼–ç :";
+            this.label3.Text = "×Ê²ú±àÂë:";
             // 
             // txtAssetCode
             // 
-            this.txtAssetCode.Font = new System.Drawing.Font("å®‹ä½“", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtAssetCode.Font = new System.Drawing.Font("ËÎÌå", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtAssetCode.Location = new System.Drawing.Point(105, 351);
             this.txtAssetCode.MaxLength = 32;
             this.txtAssetCode.Name = "txtAssetCode";
@@ -359,16 +359,16 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("å®‹ä½“", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.Font = new System.Drawing.Font("ËÎÌå", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label4.Location = new System.Drawing.Point(43, 245);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 14);
             this.label4.TabIndex = 115;
-            this.label4.Text = "è®¾å¤‡å·:";
+            this.label4.Text = "Éè±¸ºÅ:";
             // 
             // txtDeviceNum
             // 
-            this.txtDeviceNum.Font = new System.Drawing.Font("å®‹ä½“", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtDeviceNum.Font = new System.Drawing.Font("ËÎÌå", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtDeviceNum.Location = new System.Drawing.Point(105, 242);
             this.txtDeviceNum.MaxLength = 12;
             this.txtDeviceNum.Name = "txtDeviceNum";
@@ -388,183 +388,183 @@
             this.groupBox1.Controls.Add(this.label25);
             this.groupBox1.Controls.Add(this.txtDetect1);
             this.groupBox1.Controls.Add(this.btnConnect);
-            this.groupBox1.Font = new System.Drawing.Font("å®‹ä½“", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBox1.Font = new System.Drawing.Font("ËÎÌå", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(370, 192);
             this.groupBox1.TabIndex = 116;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "ä¸²å£è¿æ¥";
+            this.groupBox1.Text = "´®¿ÚÁ¬½Ó";
             // 
             // btnSetBaudrate
             // 
-            this.btnSetBaudrate.Font = new System.Drawing.Font("å®‹ä½“", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnSetBaudrate.Font = new System.Drawing.Font("ËÎÌå", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnSetBaudrate.Location = new System.Drawing.Point(293, 60);
             this.btnSetBaudrate.Name = "btnSetBaudrate";
             this.btnSetBaudrate.Size = new System.Drawing.Size(64, 35);
             this.btnSetBaudrate.TabIndex = 114;
-            this.btnSetBaudrate.Text = "å†™";
+            this.btnSetBaudrate.Text = "Ğ´";
             this.btnSetBaudrate.UseVisualStyleBackColor = true;
             this.btnSetBaudrate.Click += new System.EventHandler(this.btnSetBaudrate_Click);
             // 
             // btnReadBaudrate
             // 
-            this.btnReadBaudrate.Font = new System.Drawing.Font("å®‹ä½“", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnReadBaudrate.Font = new System.Drawing.Font("ËÎÌå", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnReadBaudrate.Location = new System.Drawing.Point(223, 60);
             this.btnReadBaudrate.Name = "btnReadBaudrate";
             this.btnReadBaudrate.Size = new System.Drawing.Size(64, 35);
             this.btnReadBaudrate.TabIndex = 113;
-            this.btnReadBaudrate.Text = "è¯»";
+            this.btnReadBaudrate.Text = "¶Á";
             this.btnReadBaudrate.UseVisualStyleBackColor = true;
             this.btnReadBaudrate.Click += new System.EventHandler(this.btnReadBaudrate_Click);
             // 
             // btnSetAddr
             // 
-            this.btnSetAddr.Font = new System.Drawing.Font("å®‹ä½“", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnSetAddr.Font = new System.Drawing.Font("ËÎÌå", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnSetAddr.Location = new System.Drawing.Point(293, 101);
             this.btnSetAddr.Name = "btnSetAddr";
             this.btnSetAddr.Size = new System.Drawing.Size(64, 35);
             this.btnSetAddr.TabIndex = 112;
-            this.btnSetAddr.Text = "å†™";
+            this.btnSetAddr.Text = "Ğ´";
             this.btnSetAddr.UseVisualStyleBackColor = true;
             this.btnSetAddr.Click += new System.EventHandler(this.btnSetAddr_Click);
             // 
             // btnReadAddr
             // 
-            this.btnReadAddr.Font = new System.Drawing.Font("å®‹ä½“", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnReadAddr.Font = new System.Drawing.Font("ËÎÌå", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnReadAddr.Location = new System.Drawing.Point(223, 101);
             this.btnReadAddr.Name = "btnReadAddr";
             this.btnReadAddr.Size = new System.Drawing.Size(64, 35);
             this.btnReadAddr.TabIndex = 111;
-            this.btnReadAddr.Text = "è¯»";
+            this.btnReadAddr.Text = "¶Á";
             this.btnReadAddr.UseVisualStyleBackColor = true;
             this.btnReadAddr.Click += new System.EventHandler(this.btnReadAddr_Click);
             // 
             // btnWriteDeviceNum
             // 
-            this.btnWriteDeviceNum.Font = new System.Drawing.Font("å®‹ä½“", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnWriteDeviceNum.Font = new System.Drawing.Font("ËÎÌå", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnWriteDeviceNum.Location = new System.Drawing.Point(409, 232);
             this.btnWriteDeviceNum.Name = "btnWriteDeviceNum";
             this.btnWriteDeviceNum.Size = new System.Drawing.Size(50, 40);
             this.btnWriteDeviceNum.TabIndex = 117;
-            this.btnWriteDeviceNum.Text = "å†™";
+            this.btnWriteDeviceNum.Text = "Ğ´";
             this.btnWriteDeviceNum.UseVisualStyleBackColor = true;
             this.btnWriteDeviceNum.Click += new System.EventHandler(this.btnWriteDeviceNum_Click);
             // 
             // btnWriteProductDate
             // 
-            this.btnWriteProductDate.Font = new System.Drawing.Font("å®‹ä½“", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnWriteProductDate.Font = new System.Drawing.Font("ËÎÌå", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnWriteProductDate.Location = new System.Drawing.Point(409, 286);
             this.btnWriteProductDate.Name = "btnWriteProductDate";
             this.btnWriteProductDate.Size = new System.Drawing.Size(50, 39);
             this.btnWriteProductDate.TabIndex = 118;
-            this.btnWriteProductDate.Text = "å†™";
+            this.btnWriteProductDate.Text = "Ğ´";
             this.btnWriteProductDate.UseVisualStyleBackColor = true;
             this.btnWriteProductDate.Click += new System.EventHandler(this.btnWriteProductDate_Click);
             // 
             // btnWriteAssetCode
             // 
-            this.btnWriteAssetCode.Font = new System.Drawing.Font("å®‹ä½“", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnWriteAssetCode.Font = new System.Drawing.Font("ËÎÌå", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnWriteAssetCode.Location = new System.Drawing.Point(409, 340);
             this.btnWriteAssetCode.Name = "btnWriteAssetCode";
             this.btnWriteAssetCode.Size = new System.Drawing.Size(50, 40);
             this.btnWriteAssetCode.TabIndex = 119;
-            this.btnWriteAssetCode.Text = "å†™";
+            this.btnWriteAssetCode.Text = "Ğ´";
             this.btnWriteAssetCode.UseVisualStyleBackColor = true;
             this.btnWriteAssetCode.Click += new System.EventHandler(this.btnWriteAssetCode_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("å®‹ä½“", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label5.Font = new System.Drawing.Font("ËÎÌå", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label5.Location = new System.Drawing.Point(661, 9);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(63, 14);
             this.label5.TabIndex = 120;
-            this.label5.Text = "é‡‡é›†æ•°æ®";
+            this.label5.Text = "²É¼¯Êı¾İ";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("å®‹ä½“", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label6.Font = new System.Drawing.Font("ËÎÌå", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label6.Location = new System.Drawing.Point(93, 21);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(49, 14);
             this.label6.TabIndex = 121;
-            this.label6.Text = "é¢å®šå€¼";
+            this.label6.Text = "¶î¶¨Öµ";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("å®‹ä½“", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label7.Font = new System.Drawing.Font("ËÎÌå", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label7.Location = new System.Drawing.Point(450, 21);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(133, 14);
             this.label7.TabIndex = 122;
-            this.label7.Text = "ä¿æŠ¤å™¨è·³é—¸äº‹ä»¶è®°å½•";
+            this.label7.Text = "±£»¤Æ÷ÌøÕ¢ÊÂ¼ş¼ÇÂ¼";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("å®‹ä½“", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label8.Font = new System.Drawing.Font("ËÎÌå", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label8.Location = new System.Drawing.Point(240, 21);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(175, 14);
             this.label8.TabIndex = 123;
-            this.label8.Text = "é¢å®šå‰©ä½™ç”µæµåŠ¨ä½œå€¼å‚æ•°ç»„";
+            this.label8.Text = "¶î¶¨Ê£ÓàµçÁ÷¶¯×÷Öµ²ÎÊı×é";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("å®‹ä½“", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label9.Font = new System.Drawing.Font("ËÎÌå", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label9.Location = new System.Drawing.Point(649, 20);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(147, 14);
             this.label9.TabIndex = 124;
-            this.label9.Text = "å‰©ä½™ç”µæµè¶…é™äº‹ä»¶è®°å½•";
+            this.label9.Text = "Ê£ÓàµçÁ÷³¬ÏŞÊÂ¼ş¼ÇÂ¼";
             // 
             // btnReadDeviceNum
             // 
-            this.btnReadDeviceNum.Font = new System.Drawing.Font("å®‹ä½“", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnReadDeviceNum.Font = new System.Drawing.Font("ËÎÌå", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnReadDeviceNum.Location = new System.Drawing.Point(353, 232);
             this.btnReadDeviceNum.Name = "btnReadDeviceNum";
             this.btnReadDeviceNum.Size = new System.Drawing.Size(50, 40);
             this.btnReadDeviceNum.TabIndex = 125;
-            this.btnReadDeviceNum.Text = "è¯»";
+            this.btnReadDeviceNum.Text = "¶Á";
             this.btnReadDeviceNum.UseVisualStyleBackColor = true;
             this.btnReadDeviceNum.Click += new System.EventHandler(this.btnReadDeviceNum_Click);
             // 
             // btnReadProductDate
             // 
-            this.btnReadProductDate.Font = new System.Drawing.Font("å®‹ä½“", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnReadProductDate.Font = new System.Drawing.Font("ËÎÌå", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnReadProductDate.Location = new System.Drawing.Point(353, 286);
             this.btnReadProductDate.Name = "btnReadProductDate";
             this.btnReadProductDate.Size = new System.Drawing.Size(50, 40);
             this.btnReadProductDate.TabIndex = 126;
-            this.btnReadProductDate.Text = "è¯»";
+            this.btnReadProductDate.Text = "¶Á";
             this.btnReadProductDate.UseVisualStyleBackColor = true;
             this.btnReadProductDate.Click += new System.EventHandler(this.btnReadProductDate_Click);
             // 
             // btnReadAssetCode
             // 
-            this.btnReadAssetCode.Font = new System.Drawing.Font("å®‹ä½“", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnReadAssetCode.Font = new System.Drawing.Font("ËÎÌå", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnReadAssetCode.Location = new System.Drawing.Point(353, 341);
             this.btnReadAssetCode.Name = "btnReadAssetCode";
             this.btnReadAssetCode.Size = new System.Drawing.Size(50, 40);
             this.btnReadAssetCode.TabIndex = 127;
-            this.btnReadAssetCode.Text = "è¯»";
+            this.btnReadAssetCode.Text = "¶Á";
             this.btnReadAssetCode.UseVisualStyleBackColor = true;
             this.btnReadAssetCode.Click += new System.EventHandler(this.btnReadAssetCode_Click);
             // 
             // btnReadFactoryValue
             // 
-            this.btnReadFactoryValue.Font = new System.Drawing.Font("å®‹ä½“", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnReadFactoryValue.Font = new System.Drawing.Font("ËÎÌå", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnReadFactoryValue.Location = new System.Drawing.Point(720, 230);
             this.btnReadFactoryValue.Name = "btnReadFactoryValue";
             this.btnReadFactoryValue.Size = new System.Drawing.Size(86, 41);
             this.btnReadFactoryValue.TabIndex = 129;
             this.btnReadFactoryValue.Tag = "";
-            this.btnReadFactoryValue.Text = "è¯»å–å‡ºå‚å€¼";
+            this.btnReadFactoryValue.Text = "¶ÁÈ¡³ö³§Öµ";
             this.btnReadFactoryValue.UseVisualStyleBackColor = true;
             this.btnReadFactoryValue.Click += new System.EventHandler(this.btnReadFactoryValue_Click);
             // 
@@ -579,13 +579,13 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.grdSmp);
             this.groupBox2.Controls.Add(this.grdRatedResidual);
-            this.groupBox2.Font = new System.Drawing.Font("å®‹ä½“", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBox2.Font = new System.Drawing.Font("ËÎÌå", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox2.Location = new System.Drawing.Point(12, 387);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(838, 301);
             this.groupBox2.TabIndex = 130;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "å‡ºå‚æ•°æ®";
+            this.groupBox2.Text = "³ö³§Êı¾İ";
             // 
             // FormCalibration
             // 
@@ -614,7 +614,7 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.grdRunValue);
             this.Name = "FormCalibration";
-            this.Text = "CKM55LC-M-DLã€Šè§„çº¦ã€‹é€šè®¯æµ‹è¯•ç¨‹åº-æ±Ÿè‹å‡¯éš†";
+            this.Text = "CKM55LC-M-DL¡¶¹æÔ¼¡·Í¨Ñ¶²âÊÔ³ÌĞò-½­ËÕ¿­Â¡";
             this.Load += new System.EventHandler(this.FormCalibration_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();

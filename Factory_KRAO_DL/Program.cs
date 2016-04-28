@@ -1,4 +1,4 @@
-ï»¿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -8,7 +8,7 @@ namespace Factory_KRAO_DL
     static class Program
     {
         /// <summary>
-        /// åº”ç”¨ç¨‹åºçš„ä¸»å…¥å£ç‚¹ã€‚
+        /// Ó¦ÓÃ³ÌĞòµÄÖ÷Èë¿Úµã¡£
         /// </summary>
         [STAThread]
         static void Main()

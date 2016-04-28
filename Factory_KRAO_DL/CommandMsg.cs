@@ -1,4 +1,4 @@
-ï»¿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +9,7 @@ namespace Factory_KRAO_DL
     class CommandMsg
     {
         /// <summary>
-        /// æ§åˆ¶ç 
+        /// ¿ØÖÆÂë
         /// </summary>
         internal enum ControlCode : byte
         {
@@ -28,7 +28,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// æ•°æ®åŸŸé•¿åº¦
+        /// Êı¾İÓò³¤¶È
         /// </summary>
         internal enum DataFieldLength : byte
         {
@@ -44,7 +44,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// æ³¢ç‰¹ç‡ç‰¹å¾å­—
+        /// ²¨ÌØÂÊÌØÕ÷×Ö
         /// </summary>
         internal enum BaudRate : byte
         {
@@ -115,7 +115,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// è¯»æ•°æ®
+        /// ¶ÁÊı¾İ
         /// </summary>
         public static byte[] readData(byte[] address, byte controlCode, string DID)
         {
@@ -152,7 +152,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// è¯»é€šä¿¡åœ°å€
+        /// ¶ÁÍ¨ĞÅµØÖ·
         /// </summary>
         public static byte[] readAddress(byte controlCode, byte dataFieldLength)
         {
@@ -177,7 +177,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// å†™æ•°æ®
+        /// Ğ´Êı¾İ
         /// </summary>
         public static byte[] writeData(byte[] address, byte controlCode, byte dataFieldLength, string DID, byte[] data)
         {
@@ -224,7 +224,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// å†™é€šä¿¡åœ°å€
+        /// Ğ´Í¨ĞÅµØÖ·
         /// </summary>
         public static byte[] writeAddress(byte[] address, byte controlCode, byte dataFieldLength)
         {
@@ -255,7 +255,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// ä¿®æ”¹å¯†ç 
+        /// ĞŞ¸ÄÃÜÂë
         /// </summary>
         public static byte[] changePassword(byte[] address, byte controlCode, byte dataFieldLength, string DID, byte[] password)
         {
@@ -302,7 +302,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// æ›´æ”¹é€šä¿¡é€Ÿç‡
+        /// ¸ü¸ÄÍ¨ĞÅËÙÂÊ
         /// </summary>
         public static byte[] changeBaudRate(byte[] address, byte controlCode, byte dataFieldLength, byte bps)
         {
@@ -332,7 +332,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// æ§åˆ¶æŒ‡ä»¤
+        /// ¿ØÖÆÖ¸Áî
         /// </summary>
         public static byte[] controlCommand(byte[] address, byte controlCode, byte dataFieldLength, string DID)
         {

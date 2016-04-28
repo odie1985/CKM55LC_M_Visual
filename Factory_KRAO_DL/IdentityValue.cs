@@ -1,21 +1,21 @@
-ï»¿using System;
+using System;
 using System.IO.Ports;
 
 namespace Factory_KRAO_DL
 {
     class IdentityValue
     {
-        #region å…¬æœ‰å­—æ®µ
+        #region ¹«ÓĞ×Ö¶Î
         private byte[] _rcvBuf = new byte[250];
         #endregion
 
-        #region äº‹ä»¶å®šä¹‰
+        #region ÊÂ¼ş¶¨Òå
         #endregion
 
-        #region å±æ€§
+        #region ÊôĞÔ
 
         /// <summary>
-        /// è¯»é€šè®¯åœ°å€
+        /// ¶ÁÍ¨Ñ¶µØÖ·
         /// </summary>
         public int[] Read_Device_Address(SerialPort sp)
         {
@@ -35,7 +35,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// å†™é€šè®¯åœ°å€
+        /// Ğ´Í¨Ñ¶µØÖ·
         /// </summary>
         public bool Write_Device_Address(byte[] address, SerialPort sp)
         {
@@ -60,7 +60,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// è¯»è®¾å¤‡å·
+        /// ¶ÁÉè±¸ºÅ
         /// </summary>
         public int[] Read_Device_Number(byte[] address, SerialPort sp)
         {
@@ -80,7 +80,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// å†™è®¾å¤‡å·
+        /// Ğ´Éè±¸ºÅ
         /// </summary>
         public bool Write_Device_Number(byte[] address, SerialPort sp, byte[] data)
         {
@@ -106,7 +106,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// è¯»èµ„äº§ç®¡ç†ç¼–ç 
+        /// ¶Á×Ê²ú¹ÜÀí±àÂë
         /// </summary>
         public int[] Read_Device_AssetCode(byte[] address, SerialPort sp)
         {
@@ -126,7 +126,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// å†™èµ„äº§ç®¡ç†ç¼–ç 
+        /// Ğ´×Ê²ú¹ÜÀí±àÂë
         /// </summary>
         public bool Write_Device_AssetCode(byte[] address, SerialPort sp, byte[] data)
         {
@@ -152,7 +152,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// é¢å®šç”µå‹
+        /// ¶î¶¨µçÑ¹
         /// </summary>
         public int[] Device_RatedVoltage(byte[] address, SerialPort sp)
         {
@@ -172,7 +172,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// é¢å®šç”µæµ
+        /// ¶î¶¨µçÁ÷
         /// </summary>
         public int[] In(byte[] address, SerialPort sp)
         {
@@ -192,7 +192,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// æœ€å¤§ç”µæµ
+        /// ×î´óµçÁ÷
         /// </summary>
         public int[] Inm(byte[] address, SerialPort sp)
         {
@@ -212,7 +212,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// è®¾å¤‡å‹å·
+        /// Éè±¸ĞÍºÅ
         /// </summary>
         public int[] Device_ProductModel(byte[] address, SerialPort sp)
         {
@@ -232,7 +232,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// è¯»ç”Ÿäº§æ—¥æœŸ
+        /// ¶ÁÉú²úÈÕÆÚ
         /// </summary>
         public int[] Read_Device_ProductDate(byte[] address, SerialPort sp)
         {
@@ -252,7 +252,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// å†™ç”Ÿäº§æ—¥æœŸ
+        /// Ğ´Éú²úÈÕÆÚ
         /// </summary>
         public bool Write_Device_ProductDate(byte[] address, SerialPort sp, byte[] data)
         {
@@ -278,7 +278,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// è¯»åè®®ç‰ˆæœ¬å·
+        /// ¶ÁĞ­Òé°æ±¾ºÅ
         /// </summary>
         public int[] Read_Device_ProtocolVersion(byte[] address, SerialPort sp)
         {
@@ -298,7 +298,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// å†™åè®®ç‰ˆæœ¬å·
+        /// Ğ´Ğ­Òé°æ±¾ºÅ
         /// </summary>
         public bool Write_Device_ProtocolVersion(byte[] address, SerialPort sp, byte[] data)
         {
@@ -324,7 +324,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// å·¥å‚ä»£ç 
+        /// ¹¤³§´úÂë
         /// </summary>
         public int[] Device_FactoryCode(byte[] address, SerialPort sp)
         {
@@ -344,7 +344,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// å›ºä»¶ç‰ˆæœ¬å·
+        /// ¹Ì¼ş°æ±¾ºÅ
         /// </summary>
         public int[] Device_FW_Version(byte[] address, SerialPort sp)
         {
@@ -364,7 +364,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// ç¡¬ä»¶ç‰ˆæœ¬å·
+        /// Ó²¼ş°æ±¾ºÅ
         /// </summary>
         public int[] Device_HW_Version(byte[] address, SerialPort sp)
         {
@@ -384,7 +384,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// é¢å®šå‰©ä½™ç”µæµåŠ¨ä½œå€¼å‚æ•°ç»„
+        /// ¶î¶¨Ê£ÓàµçÁ÷¶¯×÷Öµ²ÎÊı×é
         /// </summary>
         public int[] Rated_Residual_Parameter_Group(byte[] address, SerialPort sp)
         {
@@ -405,7 +405,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// é€šä¿¡æ³¢ç‰¹ç‡
+        /// Í¨ĞÅ²¨ÌØÂÊ
         /// </summary>
         public int Device_BaudRate(byte[] address, SerialPort sp)
         {
@@ -422,7 +422,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// å†™é€šä¿¡æ³¢ç‰¹ç‡
+        /// Ğ´Í¨ĞÅ²¨ÌØÂÊ
         /// </summary>
         public bool Write_Device_BaudRate(byte[] address, SerialPort sp, int baudrate)
         {
@@ -473,19 +473,19 @@ namespace Factory_KRAO_DL
         }
         #endregion
 
-        #region æ„é€ å‡½æ•°
+        #region ¹¹Ôìº¯Êı
         #endregion
 
-        #region å…¬æœ‰æ–¹æ³•
+        #region ¹«ÓĞ·½·¨
         #endregion
 
-        #region ä¿æŠ¤æ–¹æ³•
+        #region ±£»¤·½·¨
 
         #endregion
 
-        #region ä¿æŠ¤å­—æ®µ
+        #region ±£»¤×Ö¶Î
 
-        #region modbus å¯„å­˜å™¨å®šä¹‰
+        #region modbus ¼Ä´æÆ÷¶¨Òå
 
         private enum MBREG : int
         {

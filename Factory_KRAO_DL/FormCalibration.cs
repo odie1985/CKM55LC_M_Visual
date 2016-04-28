@@ -1,4 +1,4 @@
-ï»¿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
@@ -13,12 +13,12 @@ namespace Factory_KRAO_DL
     public partial class FormCalibration : Form
     {
         /// <summary>
-        /// æ¶ˆæ¯ä¼ é€’äº‹ä»¶å¤„ç†å§”æ‰˜
+        /// ÏûÏ¢´«µİÊÂ¼ş´¦ÀíÎ¯ÍĞ
         /// </summary>
         public delegate void DelegateMessage(object sender, string message);
 
         /// <summary>
-        /// åˆ·æ–°æ•°æ®è¡¨
+        /// Ë¢ĞÂÊı¾İ±í
         /// </summary>
         private DataTable _dtSmp = new DataTable();
         private DataTable _dtRunValue = new DataTable();
@@ -61,7 +61,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// åˆå§‹åŒ–ç«¯å£
+        /// ³õÊ¼»¯¶Ë¿Ú
         /// </summary>
         private void comPort_Init()
         {
@@ -78,7 +78,7 @@ namespace Factory_KRAO_DL
             }
             for (num = 0; num < portlist.Length; num++)
             {
-                this.stalabMBStatus.Text = "COMæœªè¿æ¥";
+                this.stalabMBStatus.Text = "COMÎ´Á¬½Ó";
                 this.stalabMBPortName.Text = portlist[num];
                 this.Refresh();
                 cbxCom.SelectedIndex = this.cbxCom.Items.IndexOf(portlist[num]);
@@ -91,7 +91,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// è¿æ¥ä¸²å£
+        /// Á¬½Ó´®¿Ú
         /// </summary>
         private void btnConnect_Click(object sender, EventArgs e)
         {
@@ -99,22 +99,22 @@ namespace Factory_KRAO_DL
             {
                 try
                 {
-                    if (btnConnect.Text == "å…³é—­ä¸²å£") //å…³é—­ä¸²å£
+                    if (btnConnect.Text == "¹Ø±Õ´®¿Ú") //¹Ø±Õ´®¿Ú
                     {
-                        btnConnect.Text = "è¿æ¥ä¸²å£";
+                        btnConnect.Text = "Á¬½Ó´®¿Ú";
                         serialPort1.DiscardOutBuffer();
                         serialPort1.DiscardInBuffer();
                         if (serialPort1.IsOpen == true)
                         {
                             serialPort1.Close();
                         }
-                        stalabMBStatus.Text = "ä¸²å£æœªè¿æ¥";
+                        stalabMBStatus.Text = "´®¿ÚÎ´Á¬½Ó";
                     }
-                    else if (btnConnect.Text == "è¿æ¥ä¸²å£") //æ‰“å¼€ä¸²å£
+                    else if (btnConnect.Text == "Á¬½Ó´®¿Ú") //´ò¿ª´®¿Ú
                     {
                         serialPort1.PortName = cbxCom.Text;
                         serialPort1.BaudRate = int.Parse(cbxBaudRate.Text);
-                        serialPort1.Parity = System.IO.Ports.Parity.Even; //å¶æ ¡éªŒ
+                        serialPort1.Parity = System.IO.Ports.Parity.Even; //Å¼Ğ£Ñé
                         serialPort1.DataBits = 8;
                         serialPort1.StopBits = StopBits.One;
 
@@ -134,7 +134,7 @@ namespace Factory_KRAO_DL
                         _timer.AutoReset = true;
                         _timer.Elapsed += new ElapsedEventHandler(timer_Elapsed);
                         
-                        btnConnect.Text = "å…³é—­ä¸²å£";
+                        btnConnect.Text = "¹Ø±Õ´®¿Ú";
                     }
                 }
                 catch (Exception ex)
@@ -197,10 +197,10 @@ namespace Factory_KRAO_DL
             }
         }
 
-        #region è¯»å–å‚æ•°
+        #region ¶ÁÈ¡²ÎÊı
 
         /// <summary>
-        /// è¯»å–è¿è¡Œå‚æ•°
+        /// ¶ÁÈ¡ÔËĞĞ²ÎÊı
         /// </summary>
         private bool fill_datatable_RunValue()
         {
@@ -232,7 +232,7 @@ namespace Factory_KRAO_DL
         }
         
         /// <summary>
-        /// ä¿æŠ¤å™¨è·³é—¸äº‹ä»¶è®°å½•
+        /// ±£»¤Æ÷ÌøÕ¢ÊÂ¼ş¼ÇÂ¼
         /// </summary>
         /// <param name="rcv"></param>
         private void fill_datatable_Trip(ref byte[] rcv)
@@ -240,52 +240,52 @@ namespace Factory_KRAO_DL
             try
             {
                 string str = "";
-                //æ•…éšœåŸå› 
+                //¹ÊÕÏÔ­Òò
                 _dtTrip.Rows[0][1] = _dtRunValue.Rows[10][1];
 
-                //æ•…éšœç›¸åˆ«
+                //¹ÊÕÏÏà±ğ
                 _dtTrip.Rows[1][1] = rcv[15].ToString("X2");  
 
-                //è·³é—¸å‘ç”Ÿæ—¶åˆ»
+                //ÌøÕ¢·¢ÉúÊ±¿Ì
                 for (int i = 0; i < 6; i++)
                 {
                     str += rcv[16 + i].ToString("X2");
                 }
                 _dtTrip.Rows[2][1] = str;
 
-                //è·³é—¸å‰å‰©ä½™ç”µæµ
+                //ÌøÕ¢Ç°Ê£ÓàµçÁ÷
                 str = rcv[22].ToString("X2");  
                 str += rcv[23].ToString("X2");
                 _dtTrip.Rows[3][1] = str;
 
-                //è·³é—¸å‰Aç›¸ç”µå‹
+                //ÌøÕ¢Ç°AÏàµçÑ¹
                 str = rcv[24].ToString("X2");
                 str += rcv[25].ToString("X2");
                 _dtTrip.Rows[4][1] = str;
 
-                //è·³é—¸å‰Bç›¸ç”µå‹
+                //ÌøÕ¢Ç°BÏàµçÑ¹
                 str = rcv[26].ToString("X2");
                 str += rcv[27].ToString("X2");
                 _dtTrip.Rows[5][1] = str;
 
-                //è·³é—¸å‰Cç›¸ç”µå‹
+                //ÌøÕ¢Ç°CÏàµçÑ¹
                 str = rcv[28].ToString("X2");
                 str += rcv[29].ToString("X2");
                 _dtTrip.Rows[6][1] = str;
 
-                // è·³é—¸å‰Aç›¸ç”µæµ
+                // ÌøÕ¢Ç°AÏàµçÁ÷
                 str = rcv[30].ToString("X2");
                 str += rcv[31].ToString("X2");
                 str += rcv[32].ToString("X2");
                 _dtTrip.Rows[7][1] = str;
 
-                // è·³é—¸å‰Bç›¸ç”µæµ
+                // ÌøÕ¢Ç°BÏàµçÁ÷
                 str = rcv[33].ToString("X2");
                 str += rcv[34].ToString("X2");
                 str += rcv[35].ToString("X2");
                 _dtTrip.Rows[8][1] = str;
 
-                // è·³é—¸å‰Bç›¸ç”µæµ
+                // ÌøÕ¢Ç°BÏàµçÁ÷
                 str = rcv[36].ToString("X2");
                 str += rcv[37].ToString("X2");
                 str += rcv[38].ToString("X2");
@@ -298,7 +298,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// å‰©ä½™ç”µæµè¶…é™äº‹ä»¶è®°å½•
+        /// Ê£ÓàµçÁ÷³¬ÏŞÊÂ¼ş¼ÇÂ¼
         /// </summary>
         /// <param name="rcv"></param>
         private void fill_datatable_ResidualLimit(ref byte[] rcv)
@@ -306,15 +306,15 @@ namespace Factory_KRAO_DL
             try
             {
                 string str = "";
-                //å‰©ä½™ç”µæµæœ€å¤§ç›¸
+                //Ê£ÓàµçÁ÷×î´óÏà
                 _dtResidualLimit.Rows[0][1] = rcv[14].ToString("X2");  
 
-                //å‰©ä½™ç”µæµå€¼
+                //Ê£ÓàµçÁ÷Öµ
                 str = rcv[15].ToString("X2");
                 str = str + rcv[16].ToString("X2");  
                 _dtResidualLimit.Rows[1][1] = str;
                 
-                //å¼€å§‹æ—¶é—´
+                //¿ªÊ¼Ê±¼ä
                 str = "";
                 for (int i = 0; i < 6; i++)
                 {
@@ -322,7 +322,7 @@ namespace Factory_KRAO_DL
                 }
                 _dtResidualLimit.Rows[2][1] = str;
 
-                //æŠ¥è­¦ç»“æŸæ—¶é—´
+                //±¨¾¯½áÊøÊ±¼ä
                 str = "";
                 for (int i = 0; i < 6; i++)
                 {
@@ -349,82 +349,82 @@ namespace Factory_KRAO_DL
             _dtRunValue.Columns.Add(value);
 
             DataRow dr1 = _dtRunValue.NewRow();
-            dr1["name"] = "Aç›¸ç”µæµ(A):";
+            dr1["name"] = "AÏàµçÁ÷(A):";
             dr1["value"] = 0;
             _dtRunValue.Rows.Add(dr1);
 
             DataRow dr2 = _dtRunValue.NewRow();
-            dr2["name"] = "Bç›¸ç”µæµ(A):";
+            dr2["name"] = "BÏàµçÁ÷(A):";
             dr2["value"] = 0;
             _dtRunValue.Rows.Add(dr2);
 
             DataRow dr3 = _dtRunValue.NewRow();
-            dr3["name"] = "Cç›¸ç”µæµ(A):";
+            dr3["name"] = "CÏàµçÁ÷(A):";
             dr3["value"] = 0;
             _dtRunValue.Rows.Add(dr3);
 
             DataRow dr4 = _dtRunValue.NewRow();
-            dr4["name"] = "å‰©ä½™ç”µæµæœ€å¤§ç›¸:";
+            dr4["name"] = "Ê£ÓàµçÁ÷×î´óÏà:";
             dr4["value"] = 0;
             _dtRunValue.Rows.Add(dr4);
 
             DataRow dr5 = _dtRunValue.NewRow();
-            dr5["name"] = "å‰©ä½™ç”µæµ(mA):";
+            dr5["name"] = "Ê£ÓàµçÁ÷(mA):";
             dr5["value"] = 0;
             _dtRunValue.Rows.Add(dr5);
 
             DataRow dr6 = _dtRunValue.NewRow();
-            dr6["name"] = "Aç›¸ç”µå‹(V):";
+            dr6["name"] = "AÏàµçÑ¹(V):";
             dr6["value"] = 0;
             _dtRunValue.Rows.Add(dr6);
 
             DataRow dr7 = _dtRunValue.NewRow();
-            dr7["name"] = "Bç›¸ç”µå‹(V):";
+            dr7["name"] = "BÏàµçÑ¹(V):";
             dr7["value"] = 0;
             _dtRunValue.Rows.Add(dr7);
 
             DataRow dr8 = _dtRunValue.NewRow();
-            dr8["name"] = "Cç›¸ç”µå‹(V):";
+            dr8["name"] = "CÏàµçÑ¹(V):";
             dr8["value"] = 0;
             _dtRunValue.Rows.Add(dr8);
 
             DataRow dr9 = _dtRunValue.NewRow();
-            dr9["name"] = "å‘Šè­¦:";
+            dr9["name"] = "¸æ¾¯:";
             dr9["value"] = 0;
             _dtRunValue.Rows.Add(dr9);
 
             DataRow dr10 = _dtRunValue.NewRow();
-            dr10["name"] = "çŠ¶æ€:";
+            dr10["name"] = "×´Ì¬:";
             dr10["value"] = 0;
             _dtRunValue.Rows.Add(dr10);
 
             DataRow dr11 = _dtRunValue.NewRow();
-            dr11["name"] = "åŸå› :";
+            dr11["name"] = "Ô­Òò:";
             dr11["value"] = 0;
             _dtRunValue.Rows.Add(dr11);
 
             DataRow dr12 = _dtRunValue.NewRow();
-            dr12["name"] = "é¢å®šå‰©ä½™ç”µæµåŠ¨ä½œå€¼:";
+            dr12["name"] = "¶î¶¨Ê£ÓàµçÁ÷¶¯×÷Öµ:";
             dr12["value"] = 0;
             _dtRunValue.Rows.Add(dr12);
 
             DataRow dr13 = _dtRunValue.NewRow();
-            dr13["name"] = "é¢å®šæé™ä¸é©±åŠ¨æ—¶é—´:";
+            dr13["name"] = "¶î¶¨¼«ÏŞ²»Çı¶¯Ê±¼ä:";
             dr13["value"] = 0;
             _dtRunValue.Rows.Add(dr13);
 
             DataRow dr14 = _dtRunValue.NewRow();
-            dr14["name"] = "å‰©ä½™ç”µæµæŠ¥è­¦æ—¶é—´:";
+            dr14["name"] = "Ê£ÓàµçÁ÷±¨¾¯Ê±¼ä:";
             dr14["value"] = 0;
             _dtRunValue.Rows.Add(dr14);
 
             grdRunValue.DataSource = _dtRunValue;
 
-            grdRunValue.Columns[0].HeaderText = "åç§°";
+            grdRunValue.Columns[0].HeaderText = "Ãû³Æ";
             grdRunValue.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             grdRunValue.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             grdRunValue.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
-            grdRunValue.Columns[1].HeaderText = "å®æµ‹å€¼";
+            grdRunValue.Columns[1].HeaderText = "Êµ²âÖµ";
             grdRunValue.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             grdRunValue.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
 
@@ -449,47 +449,47 @@ namespace Factory_KRAO_DL
             _dtSmp.Columns.Add(value);
 
             DataRow dr1 = _dtSmp.NewRow();
-            dr1["name"] = "é¢å®šç”µå‹:";
+            dr1["name"] = "¶î¶¨µçÑ¹:";
             dr1["value"] = 0;
             _dtSmp.Rows.Add(dr1);
 
             DataRow dr2 = _dtSmp.NewRow();
-            dr2["name"] = "é¢å®šç”µæµ:";
+            dr2["name"] = "¶î¶¨µçÁ÷:";
             dr2["value"] = 0;
             _dtSmp.Rows.Add(dr2);
 
             DataRow dr3 = _dtSmp.NewRow();
-            dr3["name"] = "é¢å®šç”µæµç­‰çº§:";
+            dr3["name"] = "¶î¶¨µçÁ÷µÈ¼¶:";
             dr3["value"] = 0;
             _dtSmp.Rows.Add(dr3);
 
             DataRow dr4 = _dtSmp.NewRow();
-            dr4["name"] = "å·¥å‚ä»£ç :";
+            dr4["name"] = "¹¤³§´úÂë:";
             dr4["value"] = 0;
             _dtSmp.Rows.Add(dr4);
 
             DataRow dr5 = _dtSmp.NewRow();
-            dr5["name"] = "å›ºä»¶ç‰ˆæœ¬å·:";
+            dr5["name"] = "¹Ì¼ş°æ±¾ºÅ:";
             dr5["value"] = 0;
             _dtSmp.Rows.Add(dr5);
 
 
             DataRow dr6 = _dtSmp.NewRow();
-            dr6["name"] = "ç¡¬ä»¶ç‰ˆæœ¬å·:";
+            dr6["name"] = "Ó²¼ş°æ±¾ºÅ:";
             dr6["value"] = 0;
             _dtSmp.Rows.Add(dr6);
 
             DataRow dr7 = _dtSmp.NewRow();
-            dr7["name"] = "è®¾å¤‡å‹å·:";
+            dr7["name"] = "Éè±¸ĞÍºÅ:";
             dr7["value"] = 0;
             _dtSmp.Rows.Add(dr7);
 
             grdSmp.DataSource = _dtSmp;
 
-            grdSmp.Columns[0].HeaderText = "åç§°";
+            grdSmp.Columns[0].HeaderText = "Ãû³Æ";
             grdSmp.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             grdSmp.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
-            grdSmp.Columns[1].HeaderText = "è¿”å›å€¼";
+            grdSmp.Columns[1].HeaderText = "·µ»ØÖµ";
             grdSmp.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             grdSmp.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
 
@@ -514,52 +514,52 @@ namespace Factory_KRAO_DL
             _dtRatedResidual.Columns.Add(value);
 
             DataRow dr1 = _dtRatedResidual.NewRow();
-            dr1["name"] = "æ¡£ä½1:";
+            dr1["name"] = "µµÎ»1:";
             dr1["value"] = 0;
             _dtRatedResidual.Rows.Add(dr1);
 
             DataRow dr2 = _dtRatedResidual.NewRow();
-            dr2["name"] = "æ¡£ä½2:";
+            dr2["name"] = "µµÎ»2:";
             dr2["value"] = 0;
             _dtRatedResidual.Rows.Add(dr2);
 
             DataRow dr3 = _dtRatedResidual.NewRow();
-            dr3["name"] = "æ¡£ä½3:";
+            dr3["name"] = "µµÎ»3:";
             dr3["value"] = 0;
             _dtRatedResidual.Rows.Add(dr3);
 
             DataRow dr4 = _dtRatedResidual.NewRow();
-            dr4["name"] = "æ¡£ä½4:";
+            dr4["name"] = "µµÎ»4:";
             dr4["value"] = 0;
             _dtRatedResidual.Rows.Add(dr4);
 
             DataRow dr5 = _dtRatedResidual.NewRow();
-            dr5["name"] = "æ¡£ä½5:";
+            dr5["name"] = "µµÎ»5:";
             dr5["value"] = 0;
             _dtRatedResidual.Rows.Add(dr5);
 
 
             DataRow dr6 = _dtRatedResidual.NewRow();
-            dr6["name"] = "æ¡£ä½6:";
+            dr6["name"] = "µµÎ»6:";
             dr6["value"] = 0;
             _dtRatedResidual.Rows.Add(dr6);
 
             DataRow dr7 = _dtRatedResidual.NewRow();
-            dr7["name"] = "æ¡£ä½7:";
+            dr7["name"] = "µµÎ»7:";
             dr7["value"] = 0;
             _dtRatedResidual.Rows.Add(dr7);
 
             DataRow dr8 = _dtRatedResidual.NewRow();
-            dr8["name"] = "æ¡£ä½8:";
+            dr8["name"] = "µµÎ»8:";
             dr8["value"] = 0;
             _dtRatedResidual.Rows.Add(dr8);
 
             grdRatedResidual.DataSource = _dtRatedResidual;
 
-            grdRatedResidual.Columns[0].HeaderText = "åç§°";
+            grdRatedResidual.Columns[0].HeaderText = "Ãû³Æ";
             grdRatedResidual.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             grdRatedResidual.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
-            grdRatedResidual.Columns[1].HeaderText = "è¿”å›å€¼";
+            grdRatedResidual.Columns[1].HeaderText = "·µ»ØÖµ";
             grdRatedResidual.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             grdRatedResidual.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
 
@@ -584,61 +584,61 @@ namespace Factory_KRAO_DL
             _dtTrip.Columns.Add(value);
 
             DataRow dr1 = _dtTrip.NewRow();
-            dr1["name"] = "æ•…éšœåŸå› :";
+            dr1["name"] = "¹ÊÕÏÔ­Òò:";
             dr1["value"] = 0;
             _dtTrip.Rows.Add(dr1);
 
             DataRow dr2 = _dtTrip.NewRow();
-            dr2["name"] = "æ•…éšœç›¸åˆ«:";
+            dr2["name"] = "¹ÊÕÏÏà±ğ:";
             dr2["value"] = 0;
             _dtTrip.Rows.Add(dr2);
 
             DataRow dr3 = _dtTrip.NewRow();
-            dr3["name"] = "è·³é—¸å‘ç”Ÿæ—¶åˆ»:";
+            dr3["name"] = "ÌøÕ¢·¢ÉúÊ±¿Ì:";
             dr3["value"] = 0;
             _dtTrip.Rows.Add(dr3);
 
             DataRow dr4 = _dtTrip.NewRow();
-            dr4["name"] = "è·³é—¸å‰å‰©ä½™ç”µæµ:";
+            dr4["name"] = "ÌøÕ¢Ç°Ê£ÓàµçÁ÷:";
             dr4["value"] = 0;
             _dtTrip.Rows.Add(dr4);
 
             DataRow dr5 = _dtTrip.NewRow();
-            dr5["name"] = "è·³é—¸å‰Aç›¸ç”µå‹:";
+            dr5["name"] = "ÌøÕ¢Ç°AÏàµçÑ¹:";
             dr5["value"] = 0;
             _dtTrip.Rows.Add(dr5);
 
             DataRow dr6 = _dtTrip.NewRow();
-            dr6["name"] = "è·³é—¸å‰Bç›¸ç”µå‹:";
+            dr6["name"] = "ÌøÕ¢Ç°BÏàµçÑ¹:";
             dr6["value"] = 0;
             _dtTrip.Rows.Add(dr6);
 
             DataRow dr7 = _dtTrip.NewRow();
-            dr7["name"] = "è·³é—¸å‰Cç›¸ç”µå‹:";
+            dr7["name"] = "ÌøÕ¢Ç°CÏàµçÑ¹:";
             dr7["value"] = 0;
             _dtTrip.Rows.Add(dr7);
 
             DataRow dr8 = _dtTrip.NewRow();
-            dr8["name"] = "è·³é—¸å‰Aç›¸ç”µæµ:";
+            dr8["name"] = "ÌøÕ¢Ç°AÏàµçÁ÷:";
             dr8["value"] = 0;
             _dtTrip.Rows.Add(dr8);
 
             DataRow dr9 = _dtTrip.NewRow();
-            dr9["name"] = "è·³é—¸å‰Bç›¸ç”µæµ:";
+            dr9["name"] = "ÌøÕ¢Ç°BÏàµçÁ÷:";
             dr9["value"] = 0;
             _dtTrip.Rows.Add(dr9);
 
             DataRow dr10 = _dtTrip.NewRow();
-            dr10["name"] = "è·³é—¸å‰Cç›¸ç”µæµ:";
+            dr10["name"] = "ÌøÕ¢Ç°CÏàµçÁ÷:";
             dr10["value"] = 0;
             _dtTrip.Rows.Add(dr10);
 
             grdTrip.DataSource = _dtTrip;
 
-            grdTrip.Columns[0].HeaderText = "åç§°";
+            grdTrip.Columns[0].HeaderText = "Ãû³Æ";
             grdTrip.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             grdTrip.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
-            grdTrip.Columns[1].HeaderText = "è¿”å›å€¼";
+            grdTrip.Columns[1].HeaderText = "·µ»ØÖµ";
             grdTrip.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             grdTrip.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
 
@@ -663,31 +663,31 @@ namespace Factory_KRAO_DL
             _dtResidualLimit.Columns.Add(value);
 
             DataRow dr1 = _dtResidualLimit.NewRow();
-            dr1["name"] = "å‰©ä½™ç”µæµæœ€å¤§ç›¸:";
+            dr1["name"] = "Ê£ÓàµçÁ÷×î´óÏà:";
             dr1["value"] = 0;
             _dtResidualLimit.Rows.Add(dr1);
 
             DataRow dr2 = _dtResidualLimit.NewRow();
-            dr2["name"] = "å‰©ä½™ç”µæµå€¼:";
+            dr2["name"] = "Ê£ÓàµçÁ÷Öµ:";
             dr2["value"] = 0;
             _dtResidualLimit.Rows.Add(dr2);
 
             DataRow dr3 = _dtResidualLimit.NewRow();
-            dr3["name"] = "å¼€å§‹æ—¶åˆ»:";
+            dr3["name"] = "¿ªÊ¼Ê±¿Ì:";
             dr3["value"] = 0;
             _dtResidualLimit.Rows.Add(dr3);
 
             DataRow dr4 = _dtResidualLimit.NewRow();
-            dr4["name"] = "ç»“æŸæ—¶åˆ»:";
+            dr4["name"] = "½áÊøÊ±¿Ì:";
             dr4["value"] = 0;
             _dtResidualLimit.Rows.Add(dr4);
 
             grdResidualLimit.DataSource = _dtResidualLimit;
 
-            grdResidualLimit.Columns[0].HeaderText = "åç§°";
+            grdResidualLimit.Columns[0].HeaderText = "Ãû³Æ";
             grdResidualLimit.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             grdResidualLimit.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
-            grdResidualLimit.Columns[1].HeaderText = "è¿”å›å€¼";
+            grdResidualLimit.Columns[1].HeaderText = "·µ»ØÖµ";
             grdResidualLimit.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             grdResidualLimit.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
 
@@ -704,7 +704,7 @@ namespace Factory_KRAO_DL
             Dictionary<string, string> dict = DID();
             CommandMsg dlt = new CommandMsg();
 
-            byte[] _Trip = dlt.readData(_address, (byte)CommandMsg.ControlCode.ReadData, dict["è·³é—¸äº‹ä»¶è®°å½•"]);
+            byte[] _Trip = dlt.readData(_address, (byte)CommandMsg.ControlCode.ReadData, dict["ÌøÕ¢ÊÂ¼ş¼ÇÂ¼"]);
             serialPort1.Write(_Trip, 0, _Trip.Length);
 
             if (receive_frame(ref _rcvBuf) == true)
@@ -713,7 +713,7 @@ namespace Factory_KRAO_DL
             }
             else
             {
-                stalabMBStatus.Text = "è·³é—¸äº‹ä»¶è®°å½•è¯»å–é”™è¯¯";
+                stalabMBStatus.Text = "ÌøÕ¢ÊÂ¼ş¼ÇÂ¼¶ÁÈ¡´íÎó";
             }
         }
 
@@ -724,7 +724,7 @@ namespace Factory_KRAO_DL
             Dictionary<string, string> dict = DID();
             CommandMsg dlt = new CommandMsg();
 
-            byte[] _ResidualLimit = dlt.readData(_address, (byte)CommandMsg.ControlCode.ReadData, dict["å‰©ä½™ç”µæµè¶…é™äº‹ä»¶"]);
+            byte[] _ResidualLimit = dlt.readData(_address, (byte)CommandMsg.ControlCode.ReadData, dict["Ê£ÓàµçÁ÷³¬ÏŞÊÂ¼ş"]);
             serialPort1.Write(_ResidualLimit, 0, _ResidualLimit.Length);
 
             if (receive_frame(ref _rcvBuf) == true)
@@ -733,7 +733,7 @@ namespace Factory_KRAO_DL
             }
             else
             {
-                stalabMBStatus.Text = "å‰©ä½™ç”µæµè¶…é™äº‹ä»¶è¯»å–é”™è¯¯";
+                stalabMBStatus.Text = "Ê£ÓàµçÁ÷³¬ÏŞÊÂ¼ş¶ÁÈ¡´íÎó";
             }
         }
 
@@ -869,7 +869,7 @@ namespace Factory_KRAO_DL
         private void offline_process(string msg)
         {
             _isOffline = true;
-            ShowIsOffine(this, "CKM55LC æœªè¿æ¥");
+            ShowIsOffine(this, "CKM55LC Î´Á¬½Ó");
             ShowMessage(this, msg);
             btnOpen.Enabled = btnClose.Enabled = btnTest.Enabled = false;
             this.BackColor = Color.Red;
@@ -878,8 +878,8 @@ namespace Factory_KRAO_DL
         private void online_process()
         {
             _isOffline = false;
-            ShowIsOffine(this, "CKM55LC å·²è¿æ¥");
-            ShowMessage(this, "é€šè®¯æ­£å¸¸");
+            ShowIsOffine(this, "CKM55LC ÒÑÁ¬½Ó");
+            ShowMessage(this, "Í¨Ñ¶Õı³£");
             btnOpen.Enabled = btnClose.Enabled = btnTest.Enabled = true; ;
             this.BackColor = Color.Green;
         }
@@ -888,37 +888,37 @@ namespace Factory_KRAO_DL
         {
             Dictionary<string, string> dict = new Dictionary<string, string>();
 
-            dict.Add("Aç›¸ç”µå‹", "0x02010100");
-            dict.Add("Bç›¸ç”µå‹", "0x02010200");
-            dict.Add("Cç›¸ç”µå‹", "0x02010300");
-            dict.Add("ä¸‰ç›¸ç”µå‹", "0x0201FF00");
-            dict.Add("Aç›¸ç”µæµ", "0x02020100");
-            dict.Add("Bç›¸ç”µæµ", "0x02020100");
-            dict.Add("Cç›¸ç”µæµ", "0x02020300");
-            dict.Add("ä¸‰ç›¸ç”µæµ", "0x0202FF00");
-            dict.Add("å‰©ä½™ç”µæµæœ€å¤§ç›¸","0x02900000");
-            dict.Add("å‰©ä½™ç”µæµå€¼", "0x02900100");
-            dict.Add("å‰©ä½™ç”µæµ", "0x0290FF00");
-            dict.Add("é¢å®šå‰©ä½™ç”µæµå€¼", "0x02910100");
-            dict.Add("é¢å®šç”µå‹", "0x04000404");
-            dict.Add("é¢å®šç”µæµ", "0x04000405");
-            dict.Add("é¢å®šç”µæµç­‰çº§", "0x04000406");
-            dict.Add("å·¥å‚ä»£ç ", "0x0400040E");
-            dict.Add("å›ºä»¶ç‰ˆæœ¬å·", "0x0400040F");
-            dict.Add("ç¡¬ä»¶ç‰ˆæœ¬å·", "0x04000410");
-            dict.Add("é¢å®šå‰©ä½™ç”µæµå‚æ•°ç»„", "0x04000411");
-            dict.Add("è·³é—¸äº‹ä»¶è®°å½•", "0x038E0001");
-            dict.Add("å‰©ä½™ç”µæµè¶…é™äº‹ä»¶", "0x03880001");
-            dict.Add("è¿è¡ŒçŠ¶æ€å­—", "0x04000501");
-            dict.Add("æ§åˆ¶å­—4", "0x04001004");
-            dict.Add("è·³é—¸", "0x06010101");
-            dict.Add("åˆé—¸", "0x06010201");
-            dict.Add("è¯•éªŒ", "0x06010301");
-            dict.Add("è®¾å¤‡å·", "0x04000402");
-            dict.Add("èµ„äº§ç®¡ç†ç¼–ç ", "0x04000403");
-            dict.Add("ç”Ÿäº§æ—¥æœŸ", "0x0400040C");
-            dict.Add("è®¾å¤‡å‹å·", "0x0400040B");
-            dict.Add("é€šè®¯åœ°å€", "0x04000401");
+            dict.Add("AÏàµçÑ¹", "0x02010100");
+            dict.Add("BÏàµçÑ¹", "0x02010200");
+            dict.Add("CÏàµçÑ¹", "0x02010300");
+            dict.Add("ÈıÏàµçÑ¹", "0x0201FF00");
+            dict.Add("AÏàµçÁ÷", "0x02020100");
+            dict.Add("BÏàµçÁ÷", "0x02020100");
+            dict.Add("CÏàµçÁ÷", "0x02020300");
+            dict.Add("ÈıÏàµçÁ÷", "0x0202FF00");
+            dict.Add("Ê£ÓàµçÁ÷×î´óÏà","0x02900000");
+            dict.Add("Ê£ÓàµçÁ÷Öµ", "0x02900100");
+            dict.Add("Ê£ÓàµçÁ÷", "0x0290FF00");
+            dict.Add("¶î¶¨Ê£ÓàµçÁ÷Öµ", "0x02910100");
+            dict.Add("¶î¶¨µçÑ¹", "0x04000404");
+            dict.Add("¶î¶¨µçÁ÷", "0x04000405");
+            dict.Add("¶î¶¨µçÁ÷µÈ¼¶", "0x04000406");
+            dict.Add("¹¤³§´úÂë", "0x0400040E");
+            dict.Add("¹Ì¼ş°æ±¾ºÅ", "0x0400040F");
+            dict.Add("Ó²¼ş°æ±¾ºÅ", "0x04000410");
+            dict.Add("¶î¶¨Ê£ÓàµçÁ÷²ÎÊı×é", "0x04000411");
+            dict.Add("ÌøÕ¢ÊÂ¼ş¼ÇÂ¼", "0x038E0001");
+            dict.Add("Ê£ÓàµçÁ÷³¬ÏŞÊÂ¼ş", "0x03880001");
+            dict.Add("ÔËĞĞ×´Ì¬×Ö", "0x04000501");
+            dict.Add("¿ØÖÆ×Ö4", "0x04001004");
+            dict.Add("ÌøÕ¢", "0x06010101");
+            dict.Add("ºÏÕ¢", "0x06010201");
+            dict.Add("ÊÔÑé", "0x06010301");
+            dict.Add("Éè±¸ºÅ", "0x04000402");
+            dict.Add("×Ê²ú¹ÜÀí±àÂë", "0x04000403");
+            dict.Add("Éú²úÈÕÆÚ", "0x0400040C");
+            dict.Add("Éè±¸ĞÍºÅ", "0x0400040B");
+            dict.Add("Í¨Ñ¶µØÖ·", "0x04000401");
             
             return dict;
         }
@@ -932,7 +932,7 @@ namespace Factory_KRAO_DL
                     Dictionary<string, string> dict = DID();
                     CommandMsg dlt = new CommandMsg();
 
-                    byte[] _cmdOpen = dlt.controlCommand(_address, (byte)CommandMsg.ControlCode.Control, (byte)CommandMsg.DataFieldLength.Control, dict["è·³é—¸"]);
+                    byte[] _cmdOpen = dlt.controlCommand(_address, (byte)CommandMsg.ControlCode.Control, (byte)CommandMsg.DataFieldLength.Control, dict["ÌøÕ¢"]);
 
                     serialPort1.Write(_cmdOpen, 0, _cmdOpen.Length);
                     receive_frame(ref _rcvBuf);
@@ -953,7 +953,7 @@ namespace Factory_KRAO_DL
                     Dictionary<string, string> dict = DID();
                     CommandMsg dlt = new CommandMsg();
 
-                    byte[] _cmdClose = dlt.controlCommand(_address, (byte)CommandMsg.ControlCode.Control, (byte)CommandMsg.DataFieldLength.Control, dict["åˆé—¸"]);
+                    byte[] _cmdClose = dlt.controlCommand(_address, (byte)CommandMsg.ControlCode.Control, (byte)CommandMsg.DataFieldLength.Control, dict["ºÏÕ¢"]);
 
                     serialPort1.Write(_cmdClose, 0, _cmdClose.Length);
                     receive_frame(ref _rcvBuf);
@@ -974,7 +974,7 @@ namespace Factory_KRAO_DL
                     Dictionary<string, string> dict = DID();
                     CommandMsg dlt = new CommandMsg();
 
-                    byte[] _cmdTest = dlt.controlCommand(_address, (byte)CommandMsg.ControlCode.Control, (byte)CommandMsg.DataFieldLength.Control, dict["è¯•éªŒ"]);
+                    byte[] _cmdTest = dlt.controlCommand(_address, (byte)CommandMsg.ControlCode.Control, (byte)CommandMsg.DataFieldLength.Control, dict["ÊÔÑé"]);
 
                     serialPort1.Write(_cmdTest, 0, _cmdTest.Length);
                     receive_frame(ref _rcvBuf);
@@ -1032,7 +1032,7 @@ namespace Factory_KRAO_DL
             }
             if (iv.Write_Device_Number(_address, serialPort1, tmp))
             {
-                stalabMBStatus.Text = "å†™å…¥è®¾å¤‡å·æˆåŠŸ";
+                stalabMBStatus.Text = "Ğ´ÈëÉè±¸ºÅ³É¹¦";
             }
         }
 
@@ -1047,7 +1047,7 @@ namespace Factory_KRAO_DL
             //}
             if (iv.Write_Device_ProductDate(_address, serialPort1, tmp))
             {
-                stalabMBStatus.Text = "å†™å…¥ç”Ÿäº§æ—¥æœŸæˆåŠŸ";
+                stalabMBStatus.Text = "Ğ´ÈëÉú²úÈÕÆÚ³É¹¦";
             }
         }
 
@@ -1057,7 +1057,7 @@ namespace Factory_KRAO_DL
             byte[] tmp = Encoding.ASCII.GetBytes(txtAssetCode.Text);
             if (iv.Write_Device_AssetCode(_address, serialPort1, tmp))
             {
-                stalabMBStatus.Text = "å†™å…¥èµ„äº§ç¼–ç æˆåŠŸ";
+                stalabMBStatus.Text = "Ğ´Èë×Ê²ú±àÂë³É¹¦";
             }
         }
         
@@ -1109,7 +1109,7 @@ namespace Factory_KRAO_DL
                     _address[0] = (byte)(a + b);
                     if(iv.Write_Device_Address(_address,serialPort1))
                     {
-                        stalabMBStatus.Text = "ä¿®æ”¹é€šè®¯åœ°å€æˆåŠŸ";
+                        stalabMBStatus.Text = "ĞŞ¸ÄÍ¨Ñ¶µØÖ·³É¹¦";
                     }
                 }
                 catch (Exception ex)
@@ -1168,7 +1168,7 @@ namespace Factory_KRAO_DL
                     IdentityValue iv = new IdentityValue();
                     if (iv.Write_Device_BaudRate(_address, serialPort1, int.Parse(cbxBaudRate.Text)))
                     {
-                        stalabMBStatus.Text = "ä¿®æ”¹é€šè®¯é€Ÿç‡æˆåŠŸ";
+                        stalabMBStatus.Text = "ĞŞ¸ÄÍ¨Ñ¶ËÙÂÊ³É¹¦";
                     }
                 }
                 catch (Exception ex)

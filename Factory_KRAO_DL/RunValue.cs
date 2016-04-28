@@ -1,21 +1,21 @@
-ï»¿using System;
+using System;
 using System.IO.Ports;
 
 namespace Factory_KRAO_DL
 {
     public class RunValue
     {
-        #region å…¬æœ‰å­—æ®µ
+        #region ¹«ÓĞ×Ö¶Î
         private byte[] _rcvBuf = new byte[250];
         #endregion
 
-        #region äº‹ä»¶å®šä¹‰
+        #region ÊÂ¼ş¶¨Òå
         #endregion
 
-        #region å±æ€§
+        #region ÊôĞÔ
 
         /// <summary>
-        /// Aç›¸ç”µå‹ï¼ˆVï¼‰
+        /// AÏàµçÑ¹£¨V£©
         /// </summary>
         public float Voltage_A(byte[] address, SerialPort sp)
         {
@@ -34,7 +34,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// Bç›¸ç”µå‹ï¼ˆVï¼‰
+        /// BÏàµçÑ¹£¨V£©
         /// </summary>
             public
             float Voltage_B(byte[] address, SerialPort sp)
@@ -55,7 +55,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// Cç›¸ç”µå‹ï¼ˆVï¼‰
+        /// CÏàµçÑ¹£¨V£©
         /// </summary>
         public float Voltage_C(byte[] address, SerialPort sp)
         {
@@ -74,7 +74,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// ä¸‰ç›¸ç”µå‹ï¼ˆVï¼‰
+        /// ÈıÏàµçÑ¹£¨V£©
         /// </summary>
         public float[] Voltage_All(byte[] address, SerialPort sp)
         {
@@ -101,7 +101,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// Aç›¸ç”µæµï¼ˆAï¼‰
+        /// AÏàµçÁ÷£¨A£©
         /// </summary>
         public float Current_A(byte[] address, SerialPort sp)
         {
@@ -121,7 +121,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// Bç›¸ç”µæµï¼ˆAï¼‰
+        /// BÏàµçÁ÷£¨A£©
         /// </summary>
         public float Current_B(byte[] address, SerialPort sp)
         {
@@ -141,7 +141,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// Cç›¸ç”µæµï¼ˆAï¼‰
+        /// CÏàµçÁ÷£¨A£©
         /// </summary>
         public float Current_C(byte[] address, SerialPort sp)
         {
@@ -161,7 +161,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// ä¸‰ç›¸ç”µæµï¼ˆAï¼‰
+        /// ÈıÏàµçÁ÷£¨A£©
         /// </summary>
         public float[] Current_All(byte[] address, SerialPort sp)
         {
@@ -191,7 +191,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// å‰©ä½™ç”µæµæœ€å¤§ç›¸
+        /// Ê£ÓàµçÁ÷×î´óÏà
         /// </summary>
         public float Residual_Phase(byte[] address, SerialPort sp)
         {
@@ -209,7 +209,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// å‰©ä½™ç”µæµï¼ˆmAï¼‰
+        /// Ê£ÓàµçÁ÷£¨mA£©
         /// </summary>
         public int Current_Residual(byte[] address, SerialPort sp)
         {
@@ -235,11 +235,11 @@ namespace Factory_KRAO_DL
 
             if (CommandMsg.receive_frame(ref _rcvBuf, sp) == true)
             {
-                //å‰©ä½™ç”µæµæœ€å¤§ç›¸
+                //Ê£ÓàµçÁ÷×î´óÏà
 
                 tmp[0] = _rcvBuf[14];
 
-                //å‰©ä½™ç”µæµå€¼
+                //Ê£ÓàµçÁ÷Öµ
                 tmp[1] = Utilities.bcd_to_dec(_rcvBuf[15]);
                 tmp[1] = tmp[1] + Utilities.bcd_to_dec(_rcvBuf[16]) * 100;
             }
@@ -247,7 +247,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// é¢å®šå‰©ä½™ç”µæµåŠ¨ä½œå€¼ï¼ˆmAï¼‰
+        /// ¶î¶¨Ê£ÓàµçÁ÷¶¯×÷Öµ£¨mA£©
         /// </summary>
         public int Rated_Residual(byte[] address, SerialPort sp)
         {
@@ -265,7 +265,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// é¢å®šæé™ä¸é©±åŠ¨æ—¶é—´ï¼ˆmsï¼‰
+        /// ¶î¶¨¼«ÏŞ²»Çı¶¯Ê±¼ä£¨ms£©
         /// </summary>
         public int Rated_Not_Driving_Time(byte[] address, SerialPort sp)
         {
@@ -291,12 +291,12 @@ namespace Factory_KRAO_DL
 
             if (CommandMsg.receive_frame(ref _rcvBuf, sp) == true)
             {
-                //å‰©ä½™ç”µæµæœ€å¤§ç›¸
+                //Ê£ÓàµçÁ÷×î´óÏà
 
                 tmp[0] = Utilities.bcd_to_dec(_rcvBuf[14]);
                 tmp[0] = tmp[0] + Utilities.bcd_to_dec(_rcvBuf[15]) * 100;
 
-                //å‰©ä½™ç”µæµå€¼
+                //Ê£ÓàµçÁ÷Öµ
                 tmp[1] = Utilities.bcd_to_dec(_rcvBuf[16]);
                 tmp[1] = tmp[1] + Utilities.bcd_to_dec(_rcvBuf[17]) * 100;
             }
@@ -304,7 +304,7 @@ namespace Factory_KRAO_DL
         }
 
         /// <summary>
-        /// è¿è¡ŒçŠ¶æ€å­—1
+        /// ÔËĞĞ×´Ì¬×Ö1
         /// </summary>
         public string[] Running_Status_1(byte[] address, SerialPort sp)
         {
@@ -317,120 +317,120 @@ namespace Factory_KRAO_DL
             {
                 if ((_rcvBuf[14] & 0x80) == 0x80)
                 {
-                    tmp[0] = "æœ‰";
+                    tmp[0] = "ÓĞ";
                 }
                 else
                 {
-                    tmp[0] = "æ— ";
+                    tmp[0] = "ÎŞ";
                 }
 
                 if ((_rcvBuf[14] & 0x60) == 0x60)
                 {
-                    tmp[1] = "è·³é—¸";
+                    tmp[1] = "ÌøÕ¢";
                 }
                 else if ((_rcvBuf[14] & 0x60) == 0x00)
                 {
-                    tmp[1] = "åˆé—¸";
+                    tmp[1] = "ºÏÕ¢";
                 }
                 else if ((_rcvBuf[14] & 0x60) == 0x40)
                 {
-                    tmp[1] = "é‡åˆé—¸";
+                    tmp[1] = "ÖØºÏÕ¢";
                 }
                 else
                 {
-                    tmp[1] = "ä¿ç•™";
+                    tmp[1] = "±£Áô";
                 }
 
                 if ((_rcvBuf[14] & 0x1F) == 0x00)
                 {
-                    tmp[2] = "æ­£å¸¸è¿è¡Œ";
+                    tmp[2] = "Õı³£ÔËĞĞ";
                 }
                 else if ((_rcvBuf[14] & 0x1F) == 0x02)
                 {
-                    tmp[2] = "å‰©ä½™ç”µæµ";
+                    tmp[2] = "Ê£ÓàµçÁ÷";
                 }
                 else if ((_rcvBuf[14] & 0x1F) == 0x04)
                 {
-                    tmp[2] = "æ–­é›¶";
+                    tmp[2] = "¶ÏÁã";
                 }
                 else if ((_rcvBuf[14] & 0x1F) == 0x05)
                 {
-                    tmp[2] = "è¿‡è½½";
+                    tmp[2] = "¹ıÔØ";
                 }
                 else if ((_rcvBuf[14] & 0x1F) == 0x06)
                 {
-                    tmp[2] = "çŸ­è·¯çŸ­å»¶æ—¶";
+                    tmp[2] = "¶ÌÂ·¶ÌÑÓÊ±";
                 }
                 else if ((_rcvBuf[14] & 0x1F) == 0x07)
                 {
-                    tmp[2] = "ç¼ºç›¸";
+                    tmp[2] = "È±Ïà";
                 }
                 else if ((_rcvBuf[14] & 0x1F) == 0x08)
                 {
-                    tmp[2] = "æ¬ å‹";
+                    tmp[2] = "Ç·Ñ¹";
                 }
                 else if ((_rcvBuf[14] & 0x1F) == 0x09)
                 {
-                    tmp[2] = "è¿‡å‹";
+                    tmp[2] = "¹ıÑ¹";
                 }
                 else if ((_rcvBuf[14] & 0x1F) == 0x0A)
                 {
-                    tmp[2] = "æ¥åœ°";
+                    tmp[2] = "½ÓµØ";
                 }
                 else if ((_rcvBuf[14] & 0x1F) == 0x0B)
                 {
-                    tmp[2] = "åœç”µ";
+                    tmp[2] = "Í£µç";
                 }
                 else if ((_rcvBuf[14] & 0x1F) == 0x0C)
                 {
-                    tmp[2] = "å®šæ—¶è¯•éªŒ";
+                    tmp[2] = "¶¨Ê±ÊÔÑé";
                 }
                 else if ((_rcvBuf[14] & 0x1F) == 0x0D)
                 {
-                    tmp[2] = "è¿œç¨‹";
+                    tmp[2] = "Ô¶³Ì";
                 }
                 else if ((_rcvBuf[14] & 0x1F) == 0x0E)
                 {
-                    tmp[2] = "æŒ‰é”®è¯•éªŒ";
+                    tmp[2] = "°´¼üÊÔÑé";
                 }
                 else if ((_rcvBuf[14] & 0x1F) == 0x0F)
                 {
-                    tmp[2] = "é—­é”";
+                    tmp[2] = "±ÕËø";
                 }
                 else if ((_rcvBuf[14] & 0x1F) == 0x12)
                 {
-                    tmp[2] = "æ‰‹åŠ¨";
+                    tmp[2] = "ÊÖ¶¯";
                 }
                 else if ((_rcvBuf[14] & 0x1F) == 0x10)
                 {
-                    tmp[2] = "äº’æ„Ÿå™¨æ•…éšœ";
+                    tmp[2] = "»¥¸ĞÆ÷¹ÊÕÏ";
                 }
                 else if ((_rcvBuf[14] & 0x1F) == 0x11)
                 {
-                    tmp[2] = "åˆé—¸å¤±è´¥";
+                    tmp[2] = "ºÏÕ¢Ê§°Ü";
                 }
                 else if ((_rcvBuf[14] & 0x1F) == 0x13)
                 {
-                    tmp[2] = "è®¾ç½®æ›´æ”¹";
+                    tmp[2] = "ÉèÖÃ¸ü¸Ä";
                 }
                 else if ((_rcvBuf[14] & 0x1F) == 0x16)
                 {
-                    tmp[2] = "ç¬åŠ¨";
+                    tmp[2] = "Ë²¶¯";
                 }
                 else if ((_rcvBuf[14] & 0x1F) == 0x17)
                 {
-                    tmp[2] = "åˆ†é—¸å¤±è´¥";
+                    tmp[2] = "·ÖÕ¢Ê§°Ü";
                 }
                 else
                 {
-                    tmp[2] = "ä¿ç•™";
+                    tmp[2] = "±£Áô";
                 }
             }
             return tmp;
         }
 
         /// <summary>
-        /// æ§åˆ¶å­—4
+        /// ¿ØÖÆ×Ö4
         /// </summary>
         public string[] Control_Word_4(byte[] address, SerialPort sp)
         {
@@ -443,108 +443,108 @@ namespace Factory_KRAO_DL
             {
                 if ((_rcvBuf[14] & 0x80) == 0x80)
                 {
-                    tmp[0] = "æœ‰";
+                    tmp[0] = "ÓĞ";
                 }
                 else
                 {
-                    tmp[0] = "æ— ";
+                    tmp[0] = "ÎŞ";
                 }
 
-                //é¢å®šå‰©ä½™ç”µæµåŠ¨ä½œå€¼
+                //¶î¶¨Ê£ÓàµçÁ÷¶¯×÷Öµ
                 if ((_rcvBuf[14] & 0xF0) == 0)
                 {
-                    tmp[0] = "æ¡£ä½1";
+                    tmp[0] = "µµÎ»1";
                 }
                 else if ((_rcvBuf[14] & 0xF0) == 0x10)
                 {
-                    tmp[0] = "æ¡£ä½2";
+                    tmp[0] = "µµÎ»2";
                 }
                 else if ((_rcvBuf[14] & 0xF0) == 0x20)
                 {
-                    tmp[0] = "æ¡£ä½3";
+                    tmp[0] = "µµÎ»3";
                 }
                 else if ((_rcvBuf[14] & 0xF0) == 0x30)
                 {
-                    tmp[0] = "æ¡£ä½4";
+                    tmp[0] = "µµÎ»4";
                 }
                 else if ((_rcvBuf[14] & 0xF0) == 0x40)
                 {
-                    tmp[0] = "æ¡£ä½5";
+                    tmp[0] = "µµÎ»5";
                 }
                 else if ((_rcvBuf[14] & 0xF0) == 0x50)
                 {
-                    tmp[0] = "æ¡£ä½6";
+                    tmp[0] = "µµÎ»6";
                 }
                 else if ((_rcvBuf[14] & 0xF0) == 0x60)
                 {
-                    tmp[0] = "æ¡£ä½7";
+                    tmp[0] = "µµÎ»7";
                 }
                 else if ((_rcvBuf[14] & 0xF0) == 0x70)
                 {
-                    tmp[0] = "æ¡£ä½8";
+                    tmp[0] = "µµÎ»8";
                 }
                 else if ((_rcvBuf[14] & 0xF0) == 0xF0)
                 {
-                    tmp[0] = "è¿ç»­å¯è°ƒ";
+                    tmp[0] = "Á¬Ğø¿Éµ÷";
                 }
                 else
                 {
-                    tmp[0] = "ä¿ç•™";
+                    tmp[0] = "±£Áô";
                 }
 
-                //é¢å®šæé™ä¸é©±åŠ¨æ—¶é—´
+                //¶î¶¨¼«ÏŞ²»Çı¶¯Ê±¼ä
                 if ((_rcvBuf[14] & 0x0C) == 0)
                 {
-                    tmp[1] = "æ¡£ä½1";
+                    tmp[1] = "µµÎ»1";
                 }
                 else if ((_rcvBuf[14] & 0x0C) == 0x04)
                 {
-                    tmp[1] = "æ¡£ä½2";
+                    tmp[1] = "µµÎ»2";
                 }
                 else if ((_rcvBuf[14] & 0x0C) == 0x08)
                 {
-                    tmp[1] = "æ¡£ä½3";
+                    tmp[1] = "µµÎ»3";
                 }
                 else
                 {
-                    tmp[1] = "è¿ç»­å¯è°ƒ";
+                    tmp[1] = "Á¬Ğø¿Éµ÷";
                 }
 
-                //å‰©ä½™ç”µæµæŠ¥è­¦æ—¶é—´
+                //Ê£ÓàµçÁ÷±¨¾¯Ê±¼ä
                 if ((_rcvBuf[14] & 0x03) == 0)
                 {
-                    tmp[12] = "å…³é—­";
+                    tmp[12] = "¹Ø±Õ";
                 }
                 else if ((_rcvBuf[14] & 0x0C) == 0x01)
                 {
-                    tmp[12] = "å¯ç”¨24å°æ—¶";
+                    tmp[12] = "ÆôÓÃ24Ğ¡Ê±";
                 }
                 else if ((_rcvBuf[14] & 0x0C) == 0x02)
                 {
-                    tmp[12] = "é•¿æœŸå¯ç”¨";
+                    tmp[12] = "³¤ÆÚÆôÓÃ";
                 }
                 else
                 {
-                    tmp[12] = "ä¿ç•™";
+                    tmp[12] = "±£Áô";
                 }
             }
             return tmp;
         }
         #endregion
 
-        #region æ„é€ å‡½æ•°
+        #region ¹¹Ôìº¯Êı
         #endregion
 
-        #region å…¬æœ‰æ–¹æ³•
+        #region ¹«ÓĞ·½·¨
         #endregion
 
-        #region ä¿æŠ¤æ–¹æ³•
+        #region ±£»¤·½·¨
 
         #endregion
 
-        #region ä¿æŠ¤å­—æ®µ
+        #region ±£»¤×Ö¶Î
 
-        #region modbus å¯„å­˜å™¨å®šä¹‰
+        #region modbus ¼Ä´æÆ÷¶¨Òå
         private enum MBREG : int
         {
             Voltage_A = 0x00010102,

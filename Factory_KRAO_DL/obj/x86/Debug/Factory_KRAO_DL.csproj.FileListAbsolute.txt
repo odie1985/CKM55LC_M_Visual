@@ -1,0 +1,15 @@
+E:\Projects\KRAO\CKM55LC\CKM55LC_M\CKM55LC_M_Visual\Factory_KRAO_DL\obj\x86\Debug\Factory_KRAO_DL.csprojResolveAssemblyReference.cache
+E:\Projects\KRAO\CKM55LC\CKM55LC_M\CKM55LC_M_Visual\Factory_KRAO_DL\obj\x86\Debug\Factory_KRAO_DL.Properties.Resources.resources
+E:\Projects\KRAO\CKM55LC\CKM55LC_M\CKM55LC_M_Visual\Factory_KRAO_DL\obj\x86\Debug\Factory_KRAO_DL.csproj.GenerateResource.Cache
+E:\Projects\KRAO\CKM55LC\CKM55LC_M\CKM55LC_M_Visual\Factory_KRAO_DL\bin\Debug\Factory_KRAO_DL.exe
+E:\Projects\KRAO\CKM55LC\CKM55LC_M\CKM55LC_M_Visual\Factory_KRAO_DL\bin\Debug\Factory_KRAO_DL.pdb
+E:\Projects\KRAO\CKM55LC\CKM55LC_M\CKM55LC_M_Visual\Factory_KRAO_DL\obj\x86\Debug\Factory_KRAO_DL.Form1.resources
+E:\Projects\KRAO\CKM55LC\CKM55LC_M\CKM55LC_M_Visual\Factory_KRAO_DL\obj\x86\Debug\Factory_KRAO_DL.exe
+E:\Projects\KRAO\CKM55LC\CKM55LC_M\CKM55LC_M_Visual\Factory_KRAO_DL\obj\x86\Debug\Factory_KRAO_DL.pdb
+F:\360Yun\01_Work\KARO_Project\CKM55LC_M_Visual\Factory_KRAO_DL\obj\x86\Debug\Factory_KRAO_DL.FormCalibration.resources
+F:\360Yun\01_Work\KARO_Project\CKM55LC_M_Visual\Factory_KRAO_DL\obj\x86\Debug\Factory_KRAO_DL.Properties.Resources.resources
+F:\360Yun\01_Work\KARO_Project\CKM55LC_M_Visual\Factory_KRAO_DL\obj\x86\Debug\Factory_KRAO_DL.csproj.GenerateResource.Cache
+F:\360Yun\01_Work\KARO_Project\CKM55LC_M_Visual\Factory_KRAO_DL\bin\Debug\Factory_KRAO_DL.exe
+F:\360Yun\01_Work\KARO_Project\CKM55LC_M_Visual\Factory_KRAO_DL\bin\Debug\Factory_KRAO_DL.pdb
+F:\360Yun\01_Work\KARO_Project\CKM55LC_M_Visual\Factory_KRAO_DL\obj\x86\Debug\Factory_KRAO_DL.exe
+F:\360Yun\01_Work\KARO_Project\CKM55LC_M_Visual\Factory_KRAO_DL\obj\x86\Debug\Factory_KRAO_DL.pdb

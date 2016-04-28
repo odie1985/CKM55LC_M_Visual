@@ -83,10 +83,9 @@ namespace Factory_KRAO_DL
                 this.Refresh();
                 cbxCom.SelectedIndex = this.cbxCom.Items.IndexOf(portlist[num]);
             }
-            string str = txtDetect3.Text + txtDetect2.Text + txtDetect1.Text;
             for (int i = 0; i < 6; i++)
             {
-                _address[i] = byte.Parse(str.Substring(5 - i, 1));
+                _address[i] = byte.Parse(txtDetect1.Text.Substring(5 - i, 1));
             }
             CheckForIllegalCrossThreadCalls = false;
         }
@@ -233,28 +232,6 @@ namespace Factory_KRAO_DL
         }
         
         /// <summary>
-        /// 额定剩余电流动作值参数组
-        /// </summary>
-        /// <param name="rcv"></param>
-        private void fill_datatable_RatedResidual(ref byte[] rcv)
-        {
-            try
-            {
-                int tmp;
-                    for (int i = 0; i < 8; i++)
-                    {
-                        tmp = bcd_to_dec(rcv[14 + i * 2]);
-                        tmp = tmp + bcd_to_dec(rcv[15 + i * 2])*100;
-                        _dtRatedResidual.Rows[i][1] = tmp;
-                    }
-            }
-            catch (Exception)
-            {
-                stalabMBStatus.Text = "fill_datatable error";
-            }
-        }
-
-        /// <summary>
         /// 保护器跳闸事件记录
         /// </summary>
         /// <param name="rcv"></param>
@@ -352,27 +329,6 @@ namespace Factory_KRAO_DL
                     str += rcv[22 + i].ToString("X2");
                 }
                 _dtResidualLimit.Rows[3][1] = str;
-            }
-            catch (Exception)
-            {
-                stalabMBStatus.Text = "fill_datatable error";
-            }
-        }
-
-        private void get_Address(ref byte[] rcv)
-        {
-            try
-            {
-                int[] tmp = new int[6];
-                for (int i = 0; i < 6; i++)
-                {
-                    tmp[i] = bcd_to_dec(rcv[10 + i]);
-                    _address[i] = (byte) tmp[i];
-                }
-                txtDetect1.Text = tmp[1].ToString() + tmp[0].ToString();
-                txtDetect2.Text = tmp[3].ToString() + tmp[2].ToString();
-                txtDetect3.Text = tmp[5].ToString() + tmp[4].ToString();
-
             }
             catch (Exception)
             {
@@ -743,17 +699,6 @@ namespace Factory_KRAO_DL
                             grdResidualLimit.RowTemplate.Height * _dtResidualLimit.Rows.Count;
         }
 
-        void demodulation_frame_data_area(ref byte[] rcv)
-        {
-            int len = rcv[9];
-            int i;
-            
-            for(i = 0; i < len; i++)
-            {
-               rcv[10 + i] -= 0x33;
-            }
-        }
-
         private void get_trip()
         {
             Dictionary<string, string> dict = DID();
@@ -772,23 +717,7 @@ namespace Factory_KRAO_DL
             }
         }
 
-        private void get_ratedResidual()
-        {
-            Dictionary<string, string> dict = DID();
-            CommandMsg dlt = new CommandMsg();
-
-            byte[] _RatedResidual = dlt.readData(_address, (byte)CommandMsg.ControlCode.ReadData, dict["额定剩余电流参数组"]);
-            serialPort1.Write(_RatedResidual, 0, _RatedResidual.Length);
-
-            if (receive_frame(ref _rcvBuf) == true)
-            {
-                fill_datatable_RatedResidual(ref _rcvBuf);
-            }
-            else
-            {
-                stalabMBStatus.Text = "额定剩余电流参数组读取错误";
-            }
-        }
+        
 
         private void get_residualLimit()
         {
@@ -806,165 +735,6 @@ namespace Factory_KRAO_DL
             {
                 stalabMBStatus.Text = "剩余电流超限事件读取错误";
             }
-        }
-
-        /// <summary>
-        /// 读取资产管理编码
-        /// </summary>
-        /// <returns></returns>
-        private void get_assetCode()
-        {
-            lock (_lock)
-            {
-                try
-                {
-                    Dictionary<string, string> dict = DID();
-                    CommandMsg dlt = new CommandMsg();
-
-                    byte[] _assetCode = dlt.readData(_address, (byte)CommandMsg.ControlCode.ReadData, dict["资产管理编码"]);
-
-                    serialPort1.Write(_assetCode, 0, _assetCode.Length);
-
-                    if (receive_frame(ref _rcvBuf) == true)
-                    {
-                        txtAssetCode.Text = get_ASCIICode("资产管理编码", 32);
-                    }
-                    else
-                    {
-                        stalabMBStatus.Text = "资产管理编码读取错误";
-                    }
-                }
-                catch (Exception ex)
-                {
-                    offline_process(ex.Message);
-                }
-            }
-        }
-
-        /// <summary>
-        /// 读取生产日期
-        /// </summary>
-        /// <returns></returns>
-        private void get_productDate()
-        {
-            lock (_lock)
-            {
-                try
-                {
-                    Dictionary<string, string> dict = DID();
-                    CommandMsg dlt = new CommandMsg();
-
-                    byte[] _productDate = dlt.readData(_address, (byte)CommandMsg.ControlCode.ReadData, dict["生产日期"]);
-
-                    serialPort1.Write(_productDate, 0, _productDate.Length);
-
-                    if (receive_frame(ref _rcvBuf) == true)
-                    {
-                        txtProductDate.Text = get_ASCIICode("生产日期", 10);
-                    }
-                    else
-                    {
-                        stalabMBStatus.Text = "生产日期读取错误";
-                    }
-                }
-                catch (Exception ex)
-                {
-                    offline_process(ex.Message);
-                }
-            } 
-        }
-
-        /// <summary>
-        /// 读取设备号
-        /// </summary>
-        /// <returns></returns>
-        private void get_deviceNumber()
-        {
-            lock (_lock)
-            {
-                try
-                {
-                    Dictionary<string, string> dict = DID();
-                    CommandMsg dlt = new CommandMsg();
-
-                    byte[] _deviceNumber = dlt.readData(_address, (byte)CommandMsg.ControlCode.ReadData, dict["设备号"]);
-
-                    serialPort1.Write(_deviceNumber, 0, _deviceNumber.Length);
-                    txtDeviceNum.Text = "";
-                    if (receive_frame(ref _rcvBuf) == true)
-                    {
-                        int[] tmp = new int[6];
-                        for (int i = 0; i < 6; i++)
-                        {
-                            //tmp[i] = _rcvBuf[14 + i];
-                            tmp[i] = bcd_to_dec(_rcvBuf[14 + i]);
-                            txtDeviceNum.Text += tmp[i].ToString();
-                            
-                        }
-                    }
-                    else
-                    {
-                        stalabMBStatus.Text = "设备号读取错误";
-                    }
-                }
-                catch (Exception ex)
-                {
-                    offline_process(ex.Message);
-                }
-            }
-        }
-
-        /// <summary>
-        /// 获取ASCII码
-        /// </summary>
-        private bool get_ASCIICode(string dictTag, int mlength, int rowsIndex)
-        {
-            Dictionary<string, string> dict = DID();
-            CommandMsg dlt = new CommandMsg();
-
-            byte[] _ASCIICode = dlt.readData(_address, (byte)CommandMsg.ControlCode.ReadData, dict[dictTag]);
-            serialPort1.Write(_ASCIICode, 0, _ASCIICode.Length);
-
-            if (receive_frame(ref _rcvBuf) == true)
-            {
-                byte[] tmp = new byte[mlength];
-
-                for (int i = 0; i < mlength; i++)
-                {
-                    tmp[i] = _rcvBuf[14 + i];
-                }
-                string s = System.Text.Encoding.ASCII.GetString(tmp);
-
-                _dtSmp.Rows[rowsIndex-1][1] = s;
-
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        private string get_ASCIICode(string dictTag, int mlength)
-        {
-            Dictionary<string, string> dict = DID();
-            CommandMsg dlt = new CommandMsg();
-            string str = "";
-
-            byte[] _ASCIICode = dlt.readData(_address, (byte)CommandMsg.ControlCode.ReadData, dict[dictTag]);
-            serialPort1.Write(_ASCIICode, 0, _ASCIICode.Length);
-
-            if (receive_frame(ref _rcvBuf) == true)
-            {
-                byte[] tmp = new byte[mlength];
-
-                for (int i = 0; i < mlength; i++)
-                {
-                    tmp[mlength - 1 - i] = _rcvBuf[14 + i];
-                }
-                str = System.Text.Encoding.ASCII.GetString(tmp);
-            }
-            return str;
         }
 
         private void timer_Elapsed(object sender, EventArgs e)
@@ -994,167 +764,106 @@ namespace Factory_KRAO_DL
 
         private void get_Rated_value()
         {
-            if (get_ASCIICode("额定电压", 6, 1))
-            {
-                if (get_ASCIICode("额定电流", 6, 2))
-                {
-                    if (get_ASCIICode("额定电流等级", 6, 3))
-                    {
-                        if (get_ASCIICode("工厂代码", 24, 4))
-                        {
-                            if (get_ASCIICode("固件版本号", 32, 5))
-                            {
-                                if (get_ASCIICode("硬件版本号", 32, 6))
-                                {
-                                    if (get_ASCIICode("设备型号", 10, 7))
-                                    {
-                                        get_trip();
-                                        get_ratedResidual();
-                                        get_residualLimit();
-                                        online_process();
-                                    }
-                                }
-                            }
+            get_RatedVoltage();
+            get_In();
+            get_Inm();
+            get_FactoryCode();
+            get_FW_Version();
+            get_HW_Version();
+            get_ProductModel();
+            get_trip();
+            get_ratedResidual();
+            get_residualLimit();
+            online_process();
+        }
 
-                        }
-                    }
-                }
+        private void get_RatedVoltage()
+        {
+            IdentityValue iv = new IdentityValue();
+            byte[] tmp = new byte[6];
+            for (int i = 0; i < 6; i++)
+            {
+                tmp[i] = (byte)iv.Device_RatedVoltage(_address, serialPort1)[i];
+            }
+            _dtSmp.Rows[0][1] = Encoding.ASCII.GetString(tmp);
+        }
+
+        private void get_In()
+        {
+            IdentityValue iv = new IdentityValue();
+            byte[] tmp = new byte[6];
+            for (int i = 0; i < 6; i++)
+            {
+                tmp[i] = (byte)iv.In(_address, serialPort1)[i];
+            }
+            _dtSmp.Rows[1][1] = Encoding.ASCII.GetString(tmp);
+        }
+
+        private void get_Inm()
+        {
+            IdentityValue iv = new IdentityValue();
+            byte[] tmp = new byte[6];
+            for (int i = 0; i < 6; i++)
+            {
+                tmp[i] = (byte)iv.Inm(_address, serialPort1)[i];
+            }
+            _dtSmp.Rows[2][1] = Encoding.ASCII.GetString(tmp);
+        }
+
+        private void get_FactoryCode()
+        {
+            IdentityValue iv = new IdentityValue();
+            byte[] tmp = new byte[24];
+            for (int i = 0; i < 24; i++)
+            {
+                tmp[i] = (byte)iv.Device_FactoryCode(_address, serialPort1)[i];
+            }
+            _dtSmp.Rows[3][1] = Encoding.ASCII.GetString(tmp);
+        }
+
+        private void get_FW_Version()
+        {
+            IdentityValue iv = new IdentityValue();
+            byte[] tmp = new byte[32];
+            for (int i = 0; i < 32; i++)
+            {
+                tmp[i] = (byte)iv.Device_FW_Version(_address, serialPort1)[i];
+            }
+            _dtSmp.Rows[4][1] = Encoding.ASCII.GetString(tmp);
+        }
+
+        private void get_HW_Version()
+        {
+            IdentityValue iv = new IdentityValue();
+            byte[] tmp = new byte[32];
+            for (int i = 0; i < 32; i++)
+            {
+                tmp[i] = (byte)iv.Device_HW_Version(_address, serialPort1)[i];
+            }
+            _dtSmp.Rows[5][1] = Encoding.ASCII.GetString(tmp);
+        }
+
+        private void get_ProductModel()
+        {
+            IdentityValue iv = new IdentityValue();
+            byte[] tmp = new byte[10];
+            for (int i = 0; i < 10; i++)
+            {
+                tmp[i] = (byte)iv.Device_ProductModel(_address, serialPort1)[i];
+            }
+            _dtSmp.Rows[5][1] = Encoding.ASCII.GetString(tmp);
+        }
+
+        private void get_ratedResidual()
+        {
+            IdentityValue iv = new IdentityValue();
+            byte[] tmp = new byte[8];
+            for (int i = 0; i < 8; i++)
+            {
+                tmp[i] = (byte)iv.Rated_Residual_Parameter_Group(_address, serialPort1)[i];
+                _dtRatedResidual.Rows[i][1] = tmp[i];
             }
         }
-
-        #endregion
-
-        #region 写入参数
-
-        /// <summary>
-        /// 写入资产管理编码
-        /// </summary>
-        /// <returns></returns>
-        private void write_assetCode()
-        {
-            lock (_lock)
-            {
-                try
-                {
-                    Dictionary<string, string> dict = DID();
-                    CommandMsg dlt = new CommandMsg();
-
-                    byte[] tmp = Encoding.ASCII.GetBytes(txtAssetCode.Text);
-                    byte[] array = new byte[32];
-                    for (int i = 0; i < tmp.Length; i++)
-                    {
-                        array[tmp.Length - 1 - i] = tmp[i];
-                    }
-
-                    byte[] _assetCode = dlt.writeData(_address, (byte)CommandMsg.ControlCode.WriteData,
-                        (byte)CommandMsg.DataFieldLength.WriteData + 32, dict["资产管理编码"], array);
-
-                    serialPort1.Write(_assetCode, 0, _assetCode.Length);
-
-                    if (receive_frame(ref _rcvBuf) == true)
-                    {
-                        if (_rcvBuf[8] == 0x94)
-                        {
-                            stalabMBStatus.Text = "写入资产管理编码成功";
-                        }
-                        else
-                        {
-                            stalabMBStatus.Text = "写入资产管理编码失败";
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    offline_process(ex.Message);
-                }
-            }
-        }
-
-        /// <summary>
-        /// 写入生产日期
-        /// </summary>
-        /// <returns></returns>
-        private void write_productDate()
-        {
-            lock (_lock)
-            {
-                try
-                {
-                    Dictionary<string, string> dict = DID();
-                    CommandMsg dlt = new CommandMsg();
-
-                    byte[] tmp = Encoding.ASCII.GetBytes(txtProductDate.Text);
-                    byte[] array = new byte[10];
-                    for (int i = 0; i < tmp.Length; i++)
-                    {
-                        array[i] = tmp[i];
-                    }
-
-                    byte[] _productDate = dlt.writeData(_address, (byte)CommandMsg.ControlCode.WriteData, (byte)CommandMsg.DataFieldLength.WriteData + 10, dict["生产日期"], array);
-
-                    serialPort1.Write(_productDate, 0, _productDate.Length);
-
-                    if (receive_frame(ref _rcvBuf) == true)
-                    {
-                        if (_rcvBuf[8] == 0x94)
-                        {
-                            stalabMBStatus.Text = "写入生产日期成功";
-                        }
-                        else
-                        {
-                            stalabMBStatus.Text = "写入生产日期失败";
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    offline_process(ex.Message);
-                }
-            }
-        }
-
-        /// <summary>
-        /// 写入设备号
-        /// </summary>
-        /// <returns></returns>
-        private void write_deviceNumber()
-        {
-            lock (_lock)
-            {
-                try
-                {
-                    Dictionary<string, string> dict = DID();
-                    CommandMsg dlt = new CommandMsg();
-
-                    byte[] array = new byte[txtDeviceNum.TextLength / 2];
-                    for (int i = 0; i < txtDeviceNum.TextLength / 2; i++)
-                    {
-                        array[txtDeviceNum.TextLength / 2 - 1 - i] = byte.Parse(txtDeviceNum.Text.Substring(i * 2, 2));
-                    }
-
-                    byte[] _deviceNumber = dlt.writeData(_address, (byte)CommandMsg.ControlCode.WriteData, (byte)CommandMsg.DataFieldLength.WriteData + 6, dict["设备号"], dec_to_bcd(array));
-
-                    serialPort1.Write(_deviceNumber, 0, _deviceNumber.Length);
-
-                    if (receive_frame(ref _rcvBuf) == true)
-                    {
-                        if (_rcvBuf[8] == 0x94)
-                        {
-                            stalabMBStatus.Text = "写入设备号成功";
-                        }
-                        else
-                        {
-                            stalabMBStatus.Text = "写入设备号失败";
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    offline_process(ex.Message);
-                }
-            } 
-        }
-
         #endregion
 
         private void offline_process(string msg)
@@ -1279,32 +988,77 @@ namespace Factory_KRAO_DL
 
         private void btnReadDeviceNum_Click(object sender, EventArgs e)
         {
-            get_deviceNumber();
+            IdentityValue iv = new IdentityValue();
+
+            byte[] tmp = new byte[6];
+            for (int i = 0; i < 6; i++)
+            {
+                tmp[i] = (byte) iv.Read_Device_Number(_address, serialPort1)[i];
+                txtDeviceNum.Text += tmp[i].ToString();
+            }
         }
 
         private void btnReadProductDate_Click(object sender, EventArgs e)
         {
-            get_productDate();
+            IdentityValue iv = new IdentityValue();
+
+            byte[] tmp = new byte[10];
+            for (int i = 0; i < 10; i++)
+            {
+                tmp[i] = (byte)iv.Read_Device_ProductDate(_address, serialPort1)[i];
+            }
+            txtAssetCode.Text = Encoding.ASCII.GetString(tmp);
         }
 
         private void btnReadAssetCode_Click(object sender, EventArgs e)
         {
-           get_assetCode();
+           IdentityValue iv = new IdentityValue();
+
+            byte[] tmp = new byte[32];
+            for (int i = 0; i < 32; i++)
+            {
+                tmp[i] = (byte)iv.Read_Device_AssetCode(_address, serialPort1)[i];
+            }
+           txtAssetCode.Text = Encoding.ASCII.GetString(tmp);
         }
 
         private void btnWriteDeviceNum_Click(object sender, EventArgs e)
         {
-            write_deviceNumber();
+            IdentityValue iv = new IdentityValue();
+            byte[] tmp = new byte[6];
+            for (int i = 0; i < txtDeviceNum.TextLength; i++)
+            {
+                tmp[i] = byte.Parse(txtDeviceNum.Text.Substring(i, 1));
+            }
+            if (iv.Write_Device_Number(_address, serialPort1, tmp))
+            {
+                stalabMBStatus.Text = "写入设备号成功";
+            }
         }
 
         private void btnWriteProductDate_Click(object sender, EventArgs e)
         {
-            write_productDate();
+            IdentityValue iv = new IdentityValue();
+            byte[] tmp = Encoding.ASCII.GetBytes(txtProductDate.Text);
+            //byte[] array = new byte[10];
+            //for (int i = 0; i < tmp.Length; i++)
+            //{
+            //    array[tmp.Length - 1 - i] = tmp[i];
+            //}
+            if (iv.Write_Device_ProductDate(_address, serialPort1, tmp))
+            {
+                stalabMBStatus.Text = "写入生产日期成功";
+            }
         }
 
         private void btnWriteAssetCode_Click(object sender, EventArgs e)
         {
-            write_assetCode();
+            IdentityValue iv = new IdentityValue();
+            byte[] tmp = Encoding.ASCII.GetBytes(txtAssetCode.Text);
+            if (iv.Write_Device_AssetCode(_address, serialPort1, tmp))
+            {
+                stalabMBStatus.Text = "写入资产编码成功";
+            }
         }
         
         private void btnReadFactoryValue_Click(object sender, EventArgs e)
@@ -1328,19 +1082,10 @@ namespace Factory_KRAO_DL
             {
                 try
                 {
-                    if (serialPort1.IsOpen == false)
+                    IdentityValue iv = new IdentityValue();
+                    for (int i = 0; i < 6; i++)
                     {
-                        serialPort1.Open();
-                    }
-                    Dictionary<string, string> dict = DID();
-                    CommandMsg dlt = new CommandMsg();
-
-                    byte[] _readAddr = dlt.readAddress((byte) CommandMsg.ControlCode.ReadAddr, (byte) CommandMsg.DataFieldLength.ReadAddr);
-
-                    serialPort1.Write(_readAddr, 0, _readAddr.Length);
-                    if (receive_frame(ref _rcvBuf) == true)
-                    {
-                        get_Address(ref _rcvBuf);
+                        txtDetect1.Text += iv.Read_Device_Address(serialPort1)[6 - i - 1].ToString();
                     }
                 }
                 catch (Exception ex)
@@ -1350,35 +1095,80 @@ namespace Factory_KRAO_DL
             }
         }
 
-        private void btnWriteAddr_Click(object sender, EventArgs e)
+        private void btnSetAddr_Click(object sender, EventArgs e)
         {
             lock (_lock)
             {
                 try
                 {
-                    Dictionary<string, string> dict = DID();
-                    CommandMsg dlt = new CommandMsg();
-
-                    string str = txtDetect3.Text + txtDetect2.Text + txtDetect1.Text;
-                    for (int i = 0; i < 6; i++)
+                    IdentityValue iv = new IdentityValue();
+                    int a, b;
+                    byte tmp = byte.Parse(txtDetect1.Text);
+                    a = (tmp / 10) << 4;
+                    b = (tmp % 10) & 0x0F;
+                    _address[0] = (byte)(a + b);
+                    if(iv.Write_Device_Address(_address,serialPort1))
                     {
-                        _address[i] = byte.Parse(str.Substring(5 - i, 1));
+                        stalabMBStatus.Text = "修改通讯地址成功";
                     }
+                }
+                catch (Exception ex)
+                {
+                    offline_process(ex.Message);
+                }
+            }
+        }
 
-                    byte[] _writeAddr = dlt.writeAddress(dec_to_bcd(_address), (byte) CommandMsg.ControlCode.WriteAddr,
-                        (byte) CommandMsg.DataFieldLength.WriteAddr);
-
-                    serialPort1.Write(_writeAddr, 0, _writeAddr.Length);
-                    if (receive_frame(ref _rcvBuf) == true)
+        private void btnReadBaudrate_Click(object sender, EventArgs e)
+        {
+            lock (_lock)
+            {
+                try
+                {
+                    IdentityValue iv = new IdentityValue();
+                    int tmp = iv.Device_BaudRate(_address, serialPort1);
+                    if (tmp == 1)
                     {
-                        if (_rcvBuf[8] == 0x95)
-                        {
-                            stalabMBStatus.Text = "写入通讯地址成功";
-                        }
-                        else
-                        {
-                            stalabMBStatus.Text = "写入通讯地址失败";
-                        }
+                        cbxBaudRate.Text = "600";
+                    }
+                    else if (tmp == 2)
+                    {
+                        cbxBaudRate.Text = "1200";
+                    }
+                    else if (tmp == 3)
+                    {
+                        cbxBaudRate.Text = "2400";
+                    }
+                    else if (tmp == 4)
+                    {
+                        cbxBaudRate.Text = "4800";
+                    }
+                    else if (tmp == 5)
+                    {
+                        cbxBaudRate.Text = "9600";
+                    }
+                    else if (tmp == 6)
+                    {
+                        cbxBaudRate.Text = "19200";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    offline_process(ex.Message);
+                }
+            }
+        }
+
+        private void btnSetBaudrate_Click(object sender, EventArgs e)
+        {
+            lock (_lock)
+            {
+                try
+                {
+                    IdentityValue iv = new IdentityValue();
+                    if (iv.Write_Device_BaudRate(_address, serialPort1, int.Parse(cbxBaudRate.Text)))
+                    {
+                        stalabMBStatus.Text = "修改通讯速率成功";
                     }
                 }
                 catch (Exception ex)

@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CKM55LC_M", "CKM55LC_M\CKM55LC_M.csproj", "{8996CDC5-462A-41CE-B117-DC17A726BF0C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinesDevicesManager", "LinesDevicesManager\LinesDevicesManager.csproj", "{D40EAF49-AB49-48F6-9B12-B3D0C9A0E2A0}"
@@ -10,8 +12,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Factory_KRAO", "Factory_KRAO\Factory_KRAO.csproj", "{5790F548-A432-4B77-88CF-9898C3B4A444}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Factory_KRAO_DL", "Factory_KRAO_DL\Factory_KRAO_DL.csproj", "{26FBA05F-5C97-468F-AF1E-CF4FC47C3CAE}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CKM55LC_DL", "CKM55LC_DL\CKM55LC_DL.csproj", "{DF828584-B6C1-4C72-B815-01218D37A21F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,16 +73,6 @@ Global
 		{26FBA05F-5C97-468F-AF1E-CF4FC47C3CAE}.Release|Mixed Platforms.Build.0 = Release|x86
 		{26FBA05F-5C97-468F-AF1E-CF4FC47C3CAE}.Release|x86.ActiveCfg = Release|x86
 		{26FBA05F-5C97-468F-AF1E-CF4FC47C3CAE}.Release|x86.Build.0 = Release|x86
-		{DF828584-B6C1-4C72-B815-01218D37A21F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DF828584-B6C1-4C72-B815-01218D37A21F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DF828584-B6C1-4C72-B815-01218D37A21F}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{DF828584-B6C1-4C72-B815-01218D37A21F}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{DF828584-B6C1-4C72-B815-01218D37A21F}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{DF828584-B6C1-4C72-B815-01218D37A21F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DF828584-B6C1-4C72-B815-01218D37A21F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DF828584-B6C1-4C72-B815-01218D37A21F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{DF828584-B6C1-4C72-B815-01218D37A21F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{DF828584-B6C1-4C72-B815-01218D37A21F}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

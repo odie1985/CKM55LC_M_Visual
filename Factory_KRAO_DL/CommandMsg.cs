@@ -57,7 +57,7 @@ namespace Factory_KRAO_DL
         }
 
         #region Build Message
-        public static bool receive_frame(ref byte[] rcv)
+        public static bool receive_frame(ref byte[] rcv, SerialPort sp)
         {
             int state = 0;
             int j = 0;
@@ -66,7 +66,7 @@ namespace Factory_KRAO_DL
             // receive byte
             for (int i = 0; i < rcv.Length; i++)
             {
-                tmp = (byte)(serialPort1.ReadByte());
+                tmp = (byte)(sp.ReadByte());
 
                 if (tmp == 0x68)
                 {
@@ -103,6 +103,17 @@ namespace Factory_KRAO_DL
             }
         }
 
+        private static void demodulation_frame_data_area(ref byte[] rcv)
+        {
+            int len = rcv[9];
+            int i;
+
+            for (i = 0; i < len; i++)
+            {
+                rcv[10 + i] -= 0x33;
+            }
+        }
+
         /// <summary>
         /// 读数据
         /// </summary>
@@ -120,13 +131,13 @@ namespace Factory_KRAO_DL
             send[8] = controlCode;
             send[9] = 0x04;
 
-            send[10] = Convert.ToByte(DID.Substring(8, 2), 16);
+            send[10] = Convert.ToByte(DID.Substring(2, 2), 16);
             send[10] += 0x33;
-            send[11] = Convert.ToByte(DID.Substring(6, 2), 16);
+            send[11] = Convert.ToByte(DID.Substring(4, 2), 16);
             send[11] += 0x33;
-            send[12] = Convert.ToByte(DID.Substring(4, 2), 16);
+            send[12] = Convert.ToByte(DID.Substring(6, 2), 16);
             send[12] += 0x33;
-            send[13] = Convert.ToByte(DID.Substring(2, 2), 16);
+            send[13] = Convert.ToByte(DID.Substring(8, 2), 16);
             send[13] += 0x33;
 
             send[send.Length - 2] = 0;
@@ -182,13 +193,13 @@ namespace Factory_KRAO_DL
             send[8] = controlCode;
             send[9] = dataFieldLength;
 
-            send[10] = Convert.ToByte(DID.Substring(8, 2), 16);
+            send[10] = Convert.ToByte(DID.Substring(2, 2), 16);
             send[10] += 0x33;
-            send[11] = Convert.ToByte(DID.Substring(6, 2), 16);
+            send[11] = Convert.ToByte(DID.Substring(4, 2), 16);
             send[11] += 0x33;
-            send[12] = Convert.ToByte(DID.Substring(4, 2), 16);
+            send[12] = Convert.ToByte(DID.Substring(6, 2), 16);
             send[12] += 0x33;
-            send[13] = Convert.ToByte(DID.Substring(2, 2), 16);
+            send[13] = Convert.ToByte(DID.Substring(8, 2), 16);
             send[13] += 0x33;
 
             send[14] = send[18] = 0x4B + 0x33;     //K
@@ -260,13 +271,13 @@ namespace Factory_KRAO_DL
             send[8] = controlCode;
             send[9] = dataFieldLength;
 
-            send[10] = Convert.ToByte(DID.Substring(8, 2), 16);
+            send[10] = Convert.ToByte(DID.Substring(2, 2), 16);
             send[10] += 0x33;
-            send[11] = Convert.ToByte(DID.Substring(6, 2), 16);
+            send[11] = Convert.ToByte(DID.Substring(4, 2), 16);
             send[11] += 0x33;
-            send[12] = Convert.ToByte(DID.Substring(4, 2), 16);
+            send[12] = Convert.ToByte(DID.Substring(6, 2), 16);
             send[12] += 0x33;
-            send[13] = Convert.ToByte(DID.Substring(2, 2), 16);
+            send[13] = Convert.ToByte(DID.Substring(8, 2), 16);
             send[13] += 0x33;
 
             send[14] = 0x4B + 0x33;
@@ -337,13 +348,13 @@ namespace Factory_KRAO_DL
             send[8] = controlCode;
             send[9] = dataFieldLength;
 
-            send[10] = Convert.ToByte(DID.Substring(8, 2), 16);
+            send[10] = Convert.ToByte(DID.Substring(2, 2), 16);
             send[10] += 0x33;
-            send[11] = Convert.ToByte(DID.Substring(6, 2), 16);
+            send[11] = Convert.ToByte(DID.Substring(4, 2), 16);
             send[11] += 0x33;
-            send[12] = Convert.ToByte(DID.Substring(4, 2), 16);
+            send[12] = Convert.ToByte(DID.Substring(6, 2), 16);
             send[12] += 0x33;
-            send[13] = Convert.ToByte(DID.Substring(2, 2), 16);
+            send[13] = Convert.ToByte(DID.Substring(8, 2), 16);
             send[13] += 0x33;
 
             send[14] = send[18] = 0x4B + 0x33;     //K

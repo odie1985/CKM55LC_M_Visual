@@ -24,7 +24,7 @@ namespace Factory_KRAO_DL
 
             sp.Write(_voltage, 0, _voltage.Length);
 
-            if (CommandMsg.receive_frame(ref _rcvBuf) == true)
+            if (CommandMsg.receive_frame(ref _rcvBuf, sp) == true)
             {
                 tmp = Utilities.bcd_to_dec(_rcvBuf[14]);
                 tmp = tmp + Utilities.bcd_to_dec(_rcvBuf[15])*100;
@@ -44,7 +44,7 @@ namespace Factory_KRAO_DL
 
             sp.Write(_voltage, 0, _voltage.Length);
 
-            if (CommandMsg.receive_frame(ref _rcvBuf) == true)
+            if (CommandMsg.receive_frame(ref _rcvBuf, sp) == true)
             {
                 tmp = Utilities.bcd_to_dec(_rcvBuf[14]);
                 tmp = tmp + Utilities.bcd_to_dec(_rcvBuf[15])*100;
@@ -64,7 +64,7 @@ namespace Factory_KRAO_DL
 
             sp.Write(_voltage, 0, _voltage.Length);
 
-            if (CommandMsg.receive_frame(ref _rcvBuf) == true)
+            if (CommandMsg.receive_frame(ref _rcvBuf, sp) == true)
             {
                 tmp = Utilities.bcd_to_dec(_rcvBuf[14]);
                 tmp = tmp + Utilities.bcd_to_dec(_rcvBuf[15]) * 100;
@@ -83,7 +83,7 @@ namespace Factory_KRAO_DL
 
             sp.Write(_voltage, 0, _voltage.Length);
 
-            if (CommandMsg.receive_frame(ref _rcvBuf) == true)
+            if (CommandMsg.receive_frame(ref _rcvBuf, sp) == true)
             {
                 tmp[0] = Utilities.bcd_to_dec(_rcvBuf[14]);
                 tmp[0] = tmp[0] + Utilities.bcd_to_dec(_rcvBuf[15])*100;
@@ -110,7 +110,7 @@ namespace Factory_KRAO_DL
 
             sp.Write(_current, 0, _current.Length);
 
-            if (CommandMsg.receive_frame(ref _rcvBuf) == true)
+            if (CommandMsg.receive_frame(ref _rcvBuf, sp) == true)
             {
                 tmp = Utilities.bcd_to_dec(_rcvBuf[14]);
                 tmp = tmp + Utilities.bcd_to_dec(_rcvBuf[15]) * 100;
@@ -130,7 +130,7 @@ namespace Factory_KRAO_DL
 
             sp.Write(_current, 0, _current.Length);
 
-            if (CommandMsg.receive_frame(ref _rcvBuf) == true)
+            if (CommandMsg.receive_frame(ref _rcvBuf, sp) == true)
             {
                 tmp = Utilities.bcd_to_dec(_rcvBuf[14]);
                 tmp = tmp + Utilities.bcd_to_dec(_rcvBuf[15]) * 100;
@@ -150,7 +150,7 @@ namespace Factory_KRAO_DL
 
             sp.Write(_current, 0, _current.Length);
 
-            if (CommandMsg.receive_frame(ref _rcvBuf) == true)
+            if (CommandMsg.receive_frame(ref _rcvBuf, sp) == true)
             {
                 tmp = Utilities.bcd_to_dec(_rcvBuf[14]);
                 tmp = tmp + Utilities.bcd_to_dec(_rcvBuf[15]) * 100;
@@ -170,7 +170,7 @@ namespace Factory_KRAO_DL
 
             sp.Write(_current, 0, _current.Length);
 
-            if (CommandMsg.receive_frame(ref _rcvBuf) == true)
+            if (CommandMsg.receive_frame(ref _rcvBuf, sp) == true)
             {
                 tmp[0] = Utilities.bcd_to_dec(_rcvBuf[14]);
                 tmp[0] = tmp[0] + Utilities.bcd_to_dec(_rcvBuf[15]) * 100;
@@ -200,7 +200,7 @@ namespace Factory_KRAO_DL
 
             sp.Write(_residual, 0, _residual.Length);
 
-            if (CommandMsg.receive_frame(ref _rcvBuf) == true)
+            if (CommandMsg.receive_frame(ref _rcvBuf, sp) == true)
             {
                 tmp = _rcvBuf[14];
                 
@@ -218,7 +218,7 @@ namespace Factory_KRAO_DL
 
             sp.Write(_residual, 0, _residual.Length);
 
-            if (CommandMsg.receive_frame(ref _rcvBuf) == true)
+            if (CommandMsg.receive_frame(ref _rcvBuf, sp) == true)
             {
                 tmp = Utilities.bcd_to_dec(_rcvBuf[14]);
                 tmp = tmp + Utilities.bcd_to_dec(_rcvBuf[15]) * 100;
@@ -233,7 +233,7 @@ namespace Factory_KRAO_DL
 
             sp.Write(_residual, 0, _residual.Length);
 
-            if (CommandMsg.receive_frame(ref _rcvBuf) == true)
+            if (CommandMsg.receive_frame(ref _rcvBuf, sp) == true)
             {
                 //剩余电流最大相
 
@@ -256,7 +256,7 @@ namespace Factory_KRAO_DL
 
             sp.Write(_residual, 0, _residual.Length);
 
-            if (CommandMsg.receive_frame(ref _rcvBuf) == true)
+            if (CommandMsg.receive_frame(ref _rcvBuf, sp) == true)
             {
                 tmp = Utilities.bcd_to_dec(_rcvBuf[14]);
                 tmp = tmp + Utilities.bcd_to_dec(_rcvBuf[15]) * 100;
@@ -274,7 +274,7 @@ namespace Factory_KRAO_DL
 
             sp.Write(_residual, 0, _residual.Length);
 
-            if (CommandMsg.receive_frame(ref _rcvBuf) == true)
+            if (CommandMsg.receive_frame(ref _rcvBuf, sp) == true)
             {
                 tmp = Utilities.bcd_to_dec(_rcvBuf[14]);
                 tmp = tmp + Utilities.bcd_to_dec(_rcvBuf[15]) * 100;
@@ -289,7 +289,7 @@ namespace Factory_KRAO_DL
 
             sp.Write(_residual, 0, _residual.Length);
 
-            if (CommandMsg.receive_frame(ref _rcvBuf) == true)
+            if (CommandMsg.receive_frame(ref _rcvBuf, sp) == true)
             {
                 //剩余电流最大相
 
@@ -313,7 +313,7 @@ namespace Factory_KRAO_DL
 
             sp.Write(_status, 0, _status.Length);
 
-            if (CommandMsg.receive_frame(ref _rcvBuf) == true)
+            if (CommandMsg.receive_frame(ref _rcvBuf, sp) == true)
             {
                 if ((_rcvBuf[14] & 0x80) == 0x80)
                 {
@@ -439,7 +439,7 @@ namespace Factory_KRAO_DL
 
             sp.Write(_status, 0, _status.Length);
 
-            if (CommandMsg.receive_frame(ref _rcvBuf) == true)
+            if (CommandMsg.receive_frame(ref _rcvBuf, sp) == true)
             {
                 if ((_rcvBuf[14] & 0x80) == 0x80)
                 {

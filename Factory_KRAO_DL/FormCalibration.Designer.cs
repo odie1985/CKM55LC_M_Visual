@@ -57,10 +57,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtDeviceNum = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnWriteAddr = new System.Windows.Forms.Button();
+            this.btnSetBaudrate = new System.Windows.Forms.Button();
+            this.btnReadBaudrate = new System.Windows.Forms.Button();
+            this.btnSetAddr = new System.Windows.Forms.Button();
             this.btnReadAddr = new System.Windows.Forms.Button();
-            this.txtDetect2 = new System.Windows.Forms.TextBox();
-            this.txtDetect3 = new System.Windows.Forms.TextBox();
             this.btnWriteDeviceNum = new System.Windows.Forms.Button();
             this.btnWriteProductDate = new System.Windows.Forms.Button();
             this.btnWriteAssetCode = new System.Windows.Forms.Button();
@@ -187,7 +187,7 @@
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label25.Location = new System.Drawing.Point(6, 100);
+            this.label25.Location = new System.Drawing.Point(6, 112);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(70, 14);
             this.label25.TabIndex = 108;
@@ -196,12 +196,12 @@
             // txtDetect1
             // 
             this.txtDetect1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtDetect1.Location = new System.Drawing.Point(176, 97);
-            this.txtDetect1.MaxLength = 2;
+            this.txtDetect1.Location = new System.Drawing.Point(82, 109);
+            this.txtDetect1.MaxLength = 6;
             this.txtDetect1.Name = "txtDetect1";
-            this.txtDetect1.Size = new System.Drawing.Size(41, 23);
+            this.txtDetect1.Size = new System.Drawing.Size(63, 23);
             this.txtDetect1.TabIndex = 107;
-            this.txtDetect1.Text = "01";
+            this.txtDetect1.Text = "1";
             this.txtDetect1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // cbxBaudRate
@@ -215,7 +215,7 @@
             "4800",
             "9600",
             "19200"});
-            this.cbxBaudRate.Location = new System.Drawing.Point(82, 62);
+            this.cbxBaudRate.Location = new System.Drawing.Point(82, 68);
             this.cbxBaudRate.Name = "cbxBaudRate";
             this.cbxBaudRate.Size = new System.Drawing.Size(63, 22);
             this.cbxBaudRate.TabIndex = 49;
@@ -234,7 +234,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(6, 65);
+            this.label1.Location = new System.Drawing.Point(6, 71);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 14);
             this.label1.TabIndex = 48;
@@ -377,10 +377,10 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnWriteAddr);
+            this.groupBox1.Controls.Add(this.btnSetBaudrate);
+            this.groupBox1.Controls.Add(this.btnReadBaudrate);
+            this.groupBox1.Controls.Add(this.btnSetAddr);
             this.groupBox1.Controls.Add(this.btnReadAddr);
-            this.groupBox1.Controls.Add(this.txtDetect2);
-            this.groupBox1.Controls.Add(this.txtDetect3);
             this.groupBox1.Controls.Add(this.label26);
             this.groupBox1.Controls.Add(this.cbxCom);
             this.groupBox1.Controls.Add(this.label1);
@@ -396,49 +396,49 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "串口连接";
             // 
-            // btnWriteAddr
+            // btnSetBaudrate
             // 
-            this.btnWriteAddr.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnWriteAddr.Location = new System.Drawing.Point(293, 89);
-            this.btnWriteAddr.Name = "btnWriteAddr";
-            this.btnWriteAddr.Size = new System.Drawing.Size(64, 35);
-            this.btnWriteAddr.TabIndex = 112;
-            this.btnWriteAddr.Text = "写";
-            this.btnWriteAddr.UseVisualStyleBackColor = true;
-            this.btnWriteAddr.Click += new System.EventHandler(this.btnWriteAddr_Click);
+            this.btnSetBaudrate.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnSetBaudrate.Location = new System.Drawing.Point(293, 60);
+            this.btnSetBaudrate.Name = "btnSetBaudrate";
+            this.btnSetBaudrate.Size = new System.Drawing.Size(64, 35);
+            this.btnSetBaudrate.TabIndex = 114;
+            this.btnSetBaudrate.Text = "写";
+            this.btnSetBaudrate.UseVisualStyleBackColor = true;
+            this.btnSetBaudrate.Click += new System.EventHandler(this.btnSetBaudrate_Click);
+            // 
+            // btnReadBaudrate
+            // 
+            this.btnReadBaudrate.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnReadBaudrate.Location = new System.Drawing.Point(223, 60);
+            this.btnReadBaudrate.Name = "btnReadBaudrate";
+            this.btnReadBaudrate.Size = new System.Drawing.Size(64, 35);
+            this.btnReadBaudrate.TabIndex = 113;
+            this.btnReadBaudrate.Text = "读";
+            this.btnReadBaudrate.UseVisualStyleBackColor = true;
+            this.btnReadBaudrate.Click += new System.EventHandler(this.btnReadBaudrate_Click);
+            // 
+            // btnSetAddr
+            // 
+            this.btnSetAddr.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnSetAddr.Location = new System.Drawing.Point(293, 101);
+            this.btnSetAddr.Name = "btnSetAddr";
+            this.btnSetAddr.Size = new System.Drawing.Size(64, 35);
+            this.btnSetAddr.TabIndex = 112;
+            this.btnSetAddr.Text = "写";
+            this.btnSetAddr.UseVisualStyleBackColor = true;
+            this.btnSetAddr.Click += new System.EventHandler(this.btnSetAddr_Click);
             // 
             // btnReadAddr
             // 
             this.btnReadAddr.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnReadAddr.Location = new System.Drawing.Point(223, 89);
+            this.btnReadAddr.Location = new System.Drawing.Point(223, 101);
             this.btnReadAddr.Name = "btnReadAddr";
             this.btnReadAddr.Size = new System.Drawing.Size(64, 35);
             this.btnReadAddr.TabIndex = 111;
             this.btnReadAddr.Text = "读";
             this.btnReadAddr.UseVisualStyleBackColor = true;
             this.btnReadAddr.Click += new System.EventHandler(this.btnReadAddr_Click);
-            // 
-            // txtDetect2
-            // 
-            this.txtDetect2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtDetect2.Location = new System.Drawing.Point(129, 97);
-            this.txtDetect2.MaxLength = 2;
-            this.txtDetect2.Name = "txtDetect2";
-            this.txtDetect2.Size = new System.Drawing.Size(41, 23);
-            this.txtDetect2.TabIndex = 110;
-            this.txtDetect2.Text = "00";
-            this.txtDetect2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtDetect3
-            // 
-            this.txtDetect3.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtDetect3.Location = new System.Drawing.Point(82, 97);
-            this.txtDetect3.MaxLength = 2;
-            this.txtDetect3.Name = "txtDetect3";
-            this.txtDetect3.Size = new System.Drawing.Size(41, 23);
-            this.txtDetect3.TabIndex = 109;
-            this.txtDetect3.Text = "00";
-            this.txtDetect3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnWriteDeviceNum
             // 
@@ -675,10 +675,10 @@
         private System.Windows.Forms.Button btnReadAssetCode;
         private System.Windows.Forms.Button btnReadFactoryValue;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox txtDetect2;
-        private System.Windows.Forms.TextBox txtDetect3;
-        private System.Windows.Forms.Button btnWriteAddr;
+        private System.Windows.Forms.Button btnSetAddr;
         private System.Windows.Forms.Button btnReadAddr;
+        private System.Windows.Forms.Button btnSetBaudrate;
+        private System.Windows.Forms.Button btnReadBaudrate;
     }
 }
 

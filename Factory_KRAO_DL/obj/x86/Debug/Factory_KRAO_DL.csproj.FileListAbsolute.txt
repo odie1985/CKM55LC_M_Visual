@@ -13,3 +13,5 @@ F:\360Yun\01_Work\KARO_Project\CKM55LC_M_Visual\Factory_KRAO_DL\bin\Debug\Factor
 F:\360Yun\01_Work\KARO_Project\CKM55LC_M_Visual\Factory_KRAO_DL\bin\Debug\Factory_KRAO_DL.pdb
 F:\360Yun\01_Work\KARO_Project\CKM55LC_M_Visual\Factory_KRAO_DL\obj\x86\Debug\Factory_KRAO_DL.exe
 F:\360Yun\01_Work\KARO_Project\CKM55LC_M_Visual\Factory_KRAO_DL\obj\x86\Debug\Factory_KRAO_DL.pdb
+D:\01_Work\CKM55LC_M_Visual\Factory_KRAO_DL\obj\x86\Debug\Factory_KRAO_DL.exe
+D:\01_Work\CKM55LC_M_Visual\Factory_KRAO_DL\obj\x86\Debug\Factory_KRAO_DL.pdb
